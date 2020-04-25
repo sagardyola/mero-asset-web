@@ -1,36 +1,34 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button>
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <span> APP LOGO </span>
-
-    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-      <ul fxLayout="row" fxLayoutGap="20px">
-        <li>
-          <button mat-icon-button>
-            <mat-icon>settings</mat-icon>
-          </button>
-        </li>
-        <li>
-          <button mat-icon-button>
-            <mat-icon>help_outline</mat-icon>
-          </button>
-        </li>
-        <li>
-          <button mat-button [matMenuTriggerFor]="menu">
-            <mat-icon>person_outline</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>exit_to_app</mat-icon>
-              Sign out
-            </button>
-          </mat-menu>
-
-        </li>
-      </ul>
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div>
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">Mero Asset</span>
+      </button>
     </div>
+
+    <div *ngIf="!deviceXs">
+      <a href="" mat-button>Explore</a>
+    </div>
+
+    <div>
+      <button mat-icon-button>
+        <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
+        <span *ngIf="!deviceXs">Menu</span>
+      </button>
+    </div>
+
+
+  </mat-toolbar-row>
+
+  <mat-toolbar-row fxLayoutAlign="space-between end" fxHide="true" fxShow.xs>
+    <button mat-button>Home</button>
+    <button mat-button>Contact Us</button>
+    <button mat-button>About Us</button>
   </mat-toolbar-row>
 </mat-toolbar>
+
+
+
+
+<!-- *ngIf="deviceXs"  -->
