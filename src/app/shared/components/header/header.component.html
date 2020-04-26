@@ -7,14 +7,14 @@
       </button>
     </div>
 
-    <div *ngIf="!deviceXs">
+    <div fxShow="true" fxHide.xs>
       <a href="" mat-button>Explore</a>
     </div>
 
     <div>
       <button mat-icon-button>
-        <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
-        <span *ngIf="!deviceXs">Menu</span>
+        <mat-icon fxHide fxShow.xs>more_vert</mat-icon>
+        <span fxShow fxHide.xs>Menu</span>
       </button>
     </div>
 
