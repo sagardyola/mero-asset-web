@@ -1,4 +1,41 @@
-<mat-divider></mat-divider>
-<footer>
-  &copy; All rights reserved 2019
-</footer>
+<!-- need help = FAQs?
+contact us=feedback -->
+
+
+<mat-grid-list cols="4" fxLayoutAlign="space-between center" rowHeight="2:1">
+  <mat-grid-tile>
+    <ul>
+      <li><a routerLink="">Home</a></li>
+      <li><a routerLink="/about-us">About Us</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+    </ul>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <ul>
+      <li><a [routerLink]="['/why-meroasset']">Why Meroasset?</a></li>
+      <li><a [routerLink]="['/faq']">FAQs?</a></li>
+      <li><a [routerLink]="['/privacy-policy']">Privacy Policy</a></li>
+      <li><a [routerLink]="['/terms-and-conditions']">Terms and Conditions</a></li>
+    </ul>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div>
+      <h4>Stay Connected</h4>
+      <a href="" class="highlight"><i class="fab fa-facebook"></i></a>
+      <a href="" class="highlight"><i class="fab fa-twitter"></i></a>
+      <a href="" class="highlight"><i class="fab fa-instagram"></i></a>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div>
+      <h4>
+        Sign up for your monthly update from Meroasset. Also, since you're about to give us your data, we want you
+        to know that <a routerLink="/privacy-policy" class="highlight">we care about your privacy.</a>
+      </h4>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="main-footer">
+  All Rights Reserved, ©Copyright 2020, Meroasset
+</div>

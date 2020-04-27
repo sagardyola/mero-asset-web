@@ -1,9 +1,30 @@
-$primary-dark: #1D2731;
-$primary-light: #328CC1;
-$secondary-dark: #0B3C5D;
-$secondary-light: #4484CE;
-$color-dark: #000000;
-$color-light: #FFFFFF;
-$background-dark: #0d0d0d;
-$background-light: #D9D9D9;
+$dark-1: #1D2731;
+$dark-2: #0d0d0d;
+$primary: #0B3C5D;
+$secondary-dark:#4484CE;
+$secondary-light:#328CC1;
 $accent: #D9B310;
+$light: #f8f9fa;
+
+
+
+.highlight {
+  color: $accent;
+}
+
+
+// main
+// brand
+// highlight
+// neutral
+
+
+
+// $primary: #007bff;
+// $secondary: #6c757d;
+// $success: #28a745;
+// $info: #17a2b8;
+// $warning: #ffc107;
+// $danger: #dc3545;
+// $light: #f8f9fa;
+// $dark: #343a40;

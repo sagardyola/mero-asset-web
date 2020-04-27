@@ -29,8 +29,16 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/scss/styles.scss"
+              "./node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss"
+              ]
+            },
+
+
             "scripts": []
           },
           "configurations": {
@@ -91,7 +99,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/scss/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }

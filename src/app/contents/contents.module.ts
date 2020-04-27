@@ -8,14 +8,21 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContentsRoutingModule } from './contents.routing';
 
 import { SharedModule } from './../shared/shared.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { FaqComponent } from './faq/faq.component';
+import { WhyMeroassetComponent } from './why-meroasset/why-meroasset.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    PrivacyPolicyComponent,
+    TermsAndConditionsComponent,
+    FaqComponent,
+    WhyMeroassetComponent
   ],
   imports: [
     CommonModule,
