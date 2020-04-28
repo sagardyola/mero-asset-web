@@ -1,11 +1,19 @@
-$dark-1: #1D2731;
-$dark-2: #0d0d0d;
-$primary: #0B3C5D;
-$secondary-dark:#4484CE;
-$secondary-light:#328CC1;
+$dark-100: #0d0d0d;
+$dark-200: #1D2731;
+
+$primary-100: #0B3C5D;
+$primary-200: #007bff;
+$primary-300:#328CC1;
+$primary-400:#4484CE;
+
+// secondary
+
 $accent: #D9B310;
 $light: #f8f9fa;
 
+.focus {
+  color: $accent;
+}
 
 
 
@@ -16,7 +24,6 @@ $light: #f8f9fa;
 
 
 
-// $primary: #007bff;
 // $secondary: #6c757d;
 // $success: #28a745;
 // $info: #17a2b8;
