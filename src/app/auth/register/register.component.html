@@ -1,0 +1,107 @@
+<div class="container">
+  <form #registerForm="ngForm">
+    <div fxLayout="column" fxGap="20">
+      <h1 class="text-center">Register</h1>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="user.firstName" name="firstName" #firstName="ngModel" required>
+        <mat-error align="start" *ngIf="!firstName.valid && firstName.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="user.lastName" name="lastName" #lastName="ngModel" required>
+        <mat-error align="start" *ngIf="!lastName.valid && lastName.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="user.userName" name="userName" #userName="ngModel" required>
+        <mat-error align="start" *ngIf="!userName.valid && userName.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="user.email" name="email" #email="ngModel" required>
+        <mat-error align="start" *ngIf="!email.valid && email.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" required>
+        <mat-error align="start" *ngIf="!password.valid && password.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" required>
+        <mat-error align="start" *ngIf="!password.valid && password.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field> -->
+
+
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="user.gender" name="gender" id="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>DOB</mat-label>
+        <input matInput [matDatepicker]="dobPicker" [(ngModel)]="user.dob" name="dob">
+        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dobPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Phone Number</mat-label>
+        <input matInput [(ngModel)]="user.phoneNumber" name="phoneNumber" #phoneNumber="ngModel" required>
+        <mat-error align="start" *ngIf="!phoneNumber.valid && phoneNumber.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="user.address" name="address" #address="ngModel" required>
+        <mat-error align="start" *ngIf="!address.valid && address.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Image is left -->
+
+
+      <div>
+        <a routerLink="/auth/forgot-password">Forgot Password?</a>
+      </div>
+      <div>
+        No account? <a routerLink="/auth/register">Create one!</a>
+      </div>
+
+
+      <div fxLayoutAlign="end end">
+        <button mat-stroked-button [disabled]="!registerForm.valid" *ngIf="!submitting"
+          (click)="register()">Register</button>
+        <button mat-stroked-button disabled *ngIf="submitting">Loggin in</button>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

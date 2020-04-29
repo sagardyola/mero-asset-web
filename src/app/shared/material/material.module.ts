@@ -8,6 +8,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule, MatList } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { MatNativeDateModule } from '@angular/material/core';
 
 const material = [
   MatToolbarModule,
@@ -17,7 +22,11 @@ const material = [
   MatButtonModule,
   MatCardModule,
   MatListModule,
-  MatGridListModule
+  MatGridListModule,
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ]
 
 
@@ -30,6 +39,9 @@ const material = [
   ],
   exports: [
     material
+  ],
+  providers: [
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

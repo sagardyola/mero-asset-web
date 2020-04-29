@@ -1,0 +1,39 @@
+<div class="container">
+  <form #loginForm="ngForm">
+    <div fxLayout="column" fxGap="20">
+      <h1 class="text-center">Sign in</h1>
+      <mat-form-field>
+        <mat-label>Username or Email</mat-label>
+        <input matInput [(ngModel)]="user.userName" name="userName" #username="ngModel" placeholder="Ex. user@mail.com"
+          required>
+        <mat-error align="start" *ngIf="!username.valid && username.dirty">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" required>
+        <mat-error align="start" [hidden]="password.valid || password.pristine">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div>
+        <a routerLink="/auth/forgot-password">Forgot Password?</a>
+      </div>
+      <div>
+        No account? <a routerLink="/auth/register">Create one!</a>
+      </div>
+
+
+      <div fxLayoutAlign="end end">
+        <button mat-stroked-button [disabled]="!loginForm.valid" *ngIf="!submitting" (click)="login()">Login</button>
+        <button mat-stroked-button disabled *ngIf="submitting">Loggin in</button>
+      </div>
+
+    </div>
+
+
+  </form>
+</div>

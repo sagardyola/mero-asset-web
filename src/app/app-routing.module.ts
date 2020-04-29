@@ -8,6 +8,14 @@ const routes: Routes = [
     loadChildren: './contents/contents.module#ContentsModule'
   },
   {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }

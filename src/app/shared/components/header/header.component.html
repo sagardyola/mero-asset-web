@@ -11,17 +11,24 @@
       <a href="" mat-button>Explore</a>
     </div>
 
-    <div>
-      <button mat-icon-button>
-        <mat-icon fxHide fxShow.xs>more_vert</mat-icon>
-        <span fxShow fxHide.xs>Menu</span>
+    <div *ngIf="!isLoggedIn()">
+      <a routerLink="/auth/login" mat-flat-button color="primary">Login</a>
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <mat-menu #appMenu="matMenu">
+        <ng-template matMenuContent>
+          <button mat-menu-item color="primary">Settings</button>
+          <button mat-menu-item (click)="logout()">Logout</button>
+        </ng-template>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon class="focus">account_circle</mat-icon>
       </button>
     </div>
-  </mat-toolbar-row>
 
+  </mat-toolbar-row>
   <mat-toolbar-row fxLayoutAlign="space-between end" fxHide="true" fxShow.xs>
-    <button mat-button>Home</button>
-    <button mat-button>Contact Us</button>
-    <button mat-button>About Us</button>
+    <a href="" mat-button>Explore</a>
+    <a routerLink="/auth/login" mat-button>Login</a>
   </mat-toolbar-row>
 </mat-toolbar>

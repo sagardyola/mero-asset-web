@@ -7,6 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
 import { ContentsModule } from './contents/contents.module';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
@@ -21,7 +26,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    ContentsModule
+    ContentsModule,
+    AuthModule,
+    UserModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
