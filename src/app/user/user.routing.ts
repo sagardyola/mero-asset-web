@@ -7,7 +7,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 const userRoute: Routes = [
     {
-        path: 'profile',
+        path: '',
         component: ProfileComponent
     },
     {

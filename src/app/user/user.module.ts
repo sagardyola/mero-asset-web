@@ -5,6 +5,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user.routing';
+import { UserService } from './services/user.service';
 
 
 
@@ -18,6 +19,9 @@ import { UserRoutingModule } from './user.routing';
     CommonModule,
     SharedModule,
     UserRoutingModule
+  ],
+  providers: [
+    UserService
   ]
 })
 export class UserModule { }

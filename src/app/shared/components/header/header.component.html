@@ -17,6 +17,7 @@
     <div *ngIf="isLoggedIn()">
       <mat-menu #appMenu="matMenu">
         <ng-template matMenuContent>
+          <a mat-menu-item class="focus" routerLink="/user">Profile</a>
           <button mat-menu-item color="primary">Settings</button>
           <button mat-menu-item (click)="logout()">Logout</button>
         </ng-template>
