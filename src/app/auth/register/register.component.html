@@ -1,57 +1,70 @@
 <div class="container">
+  <h1 class="text-center">Register</h1>
   <form #registerForm="ngForm">
-    <div fxLayout="column" fxGap="20">
-      <h1 class="text-center">Register</h1>
-      <mat-form-field>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
         <mat-label>First Name</mat-label>
         <input matInput [(ngModel)]="user.firstName" name="firstName" #firstName="ngModel" required>
-        <mat-error align="start" *ngIf="!firstName.valid && firstName.dirty">
+        <mat-error align="start" *ngIf="!firstName.valid && firstName.touched">
           <strong>required field*</strong>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field fxFlex="50%">
         <mat-label>Last Name</mat-label>
         <input matInput [(ngModel)]="user.lastName" name="lastName" #lastName="ngModel" required>
-        <mat-error align="start" *ngIf="!lastName.valid && lastName.dirty">
+        <mat-error align="start" *ngIf="!lastName.valid && lastName.touched">
           <strong>required field*</strong>
         </mat-error>
       </mat-form-field>
+    </div>
 
-      <mat-form-field>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
         <mat-label>Username</mat-label>
         <input matInput [(ngModel)]="user.userName" name="userName" #userName="ngModel" required>
-        <mat-error align="start" *ngIf="!userName.valid && userName.dirty">
+        <mat-error align="start" *ngIf="!userName.valid && userName.touched">
           <strong>required field*</strong>
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field fxFlex="50%">
         <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="user.email" name="email" #email="ngModel" required>
-        <mat-error align="start" *ngIf="!email.valid && email.dirty">
+        <input matInput [(ngModel)]="user.email" name="email" #email="ngModel" email required>
+        <!-- Safe navigation operator checks null -->
+        <mat-error align="start" *ngIf="email.errors?.required && email.touched">
           <strong>required field*</strong>
         </mat-error>
+        <mat-error align="start" *ngIf="email.errors?.email && email.touched">
+          <strong>Invalid Email</strong>
+        </mat-error>
       </mat-form-field>
+    </div>
 
-      <mat-form-field>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" required>
-        <mat-error align="start" *ngIf="!password.valid && password.dirty">
+        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" type="password" required>
+        <mat-error align="start" *ngIf="!password.valid && password.touched">
           <strong>required field*</strong>
         </mat-error>
       </mat-form-field>
 
-      <!-- <mat-form-field>
+      <mat-form-field fxFlex="50%">
         <mat-label>Confirm Password</mat-label>
-        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" required>
-        <mat-error align="start" *ngIf="!password.valid && password.dirty">
+        <input matInput [(ngModel)]="user.cPassword" name="cPassword" #cPassword="ngModel" type="password" required>
+        <mat-error align="start" *ngIf="!cPassword.valid && cPassword.touched">
           <strong>required field*</strong>
         </mat-error>
-      </mat-form-field> -->
 
+        <!-- <mat-error align="start" *ngIf="password != cPassword">
+          <strong>Password donot match</strong>
+        </mat-error> -->
+      </mat-form-field>
+    </div>
 
-      <mat-form-field>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
         <mat-label>Gender</mat-label>
         <mat-select [(ngModel)]="user.gender" name="gender" id="gender">
           <mat-option value="Male">Male</mat-option>
@@ -60,42 +73,33 @@
       </mat-form-field>
 
 
-      <mat-form-field>
+      <mat-form-field fxFlex="50%">
         <mat-label>DOB</mat-label>
-        <input matInput [matDatepicker]="dobPicker" [(ngModel)]="user.dob" name="dob">
+        <input matInput [matDatepicker]="dobPicker" [(ngModel)]="user.dob" name="dob" disabled>
         <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
-        <mat-datepicker #dobPicker></mat-datepicker>
+        <mat-datepicker #dobPicker disabled="false"></mat-datepicker>
       </mat-form-field>
+    </div>
 
-      <mat-form-field>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
         <mat-label>Phone Number</mat-label>
         <input matInput [(ngModel)]="user.phoneNumber" name="phoneNumber" #phoneNumber="ngModel">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field fxFlex="50%">
         <mat-label>Address</mat-label>
         <input matInput [(ngModel)]="user.address" name="address" #address="ngModel">
       </mat-form-field>
-
-      <!-- Image is left -->
-
-
-      <div>
-        <a routerLink="/auth/forgot-password">Forgot Password?</a>
-      </div>
-      <div>
-        No account? <a routerLink="/auth/register">Create one!</a>
-      </div>
-
-
-      <div fxLayoutAlign="end end">
-        <button mat-stroked-button [disabled]="!registerForm.valid" *ngIf="!submitting"
-          (click)="register()">Register</button>
-        <button mat-stroked-button disabled *ngIf="submitting">Registering</button>
-      </div>
-
     </div>
+    <!-- Image is left -->
 
+
+    <div fxLayout="row" fxLayoutAlign="end end">
+      <button mat-stroked-button [disabled]="!registerForm.valid" *ngIf="!submitting"
+        (click)="register()">Register</button>
+      <button mat-stroked-button disabled *ngIf="submitting">Registering</button>
+    </div>
 
   </form>
 </div>

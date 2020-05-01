@@ -7,20 +7,26 @@ $primary-300:#328CC1;
 $primary-400:#4484CE;
 
 // secondary
-
 $accent: #D9B310;
 $light: #f8f9fa;
-
 $danger: #dc3545;
 
-
-.focus {
+.accent {
   color: $accent;
+}
+
+.dark {
+  color: $dark-100;
+}
+
+.light {
+  color: $light;
 }
 
 .danger {
   color: $danger;
 }
+
 
 
 

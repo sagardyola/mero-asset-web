@@ -2,31 +2,30 @@
   <mat-toolbar-row fxLayoutAlign="space-between center">
     <div>
       <a routerLink="" mat-button>
-        <mat-icon>home</mat-icon>
-        <span class="logo">Mero Asset</span>
+        <mat-icon class="accent">home</mat-icon>
+        <span class="logo accent">Mero Asset</span>
       </a>
     </div>
 
     <div fxShow="true" fxHide.xs>
-      <a href="" mat-button>Explore</a>
+      <a href="" mat-button class="light">Explore</a>
     </div>
 
     <div *ngIf="!isLoggedIn()">
-      <a routerLink="/auth/login" mat-flat-button color="primary">Login</a>
+      <a routerLink="/auth/login" mat-flat-button color="primary" class="login">Login</a>
     </div>
     <div *ngIf="isLoggedIn()">
       <mat-menu #appMenu="matMenu">
         <ng-template matMenuContent>
-          <a mat-menu-item class="focus" routerLink="/user">Profile</a>
-          <button mat-menu-item color="primary">Settings</button>
-          <button mat-menu-item (click)="logout()">Logout</button>
+          <a mat-menu-item routerLink="/user">Profile</a>
+          <a mat-menu-item routerLink="/user">Settings</a>
+          <a mat-menu-item (click)="logout()">Logout</a>
         </ng-template>
       </mat-menu>
       <button mat-icon-button [matMenuTriggerFor]="appMenu">
-        <mat-icon class="focus">account_circle</mat-icon>
+        <mat-icon class="accent">account_circle</mat-icon>
       </button>
     </div>
-
   </mat-toolbar-row>
   <mat-toolbar-row fxLayoutAlign="space-between end" fxHide="true" fxShow.xs>
     <a href="" mat-button>Explore</a>

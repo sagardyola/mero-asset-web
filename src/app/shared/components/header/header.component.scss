@@ -9,6 +9,12 @@ mat-toolbar {
   font-size: 20px;
 }
 
-a {
-  color: #ffffff;
+.login {
+  border-radius: 0;
+  background-color: $primary-100;
+  border: 1px solid $accent;
 }
+
+// a {
+//   color: #ffffff;
+// }
