@@ -2,8 +2,7 @@
   <mat-toolbar-row fxLayoutAlign="space-between center">
     <div>
       <a routerLink="" mat-button>
-        <mat-icon class="accent">home</mat-icon>
-        <span class="logo accent">Mero Asset</span>
+        <img src="./../../../../assets/images/logo/meroasset.png" class="brand" alt="Meroasset">
       </a>
     </div>
 
@@ -17,6 +16,7 @@
     <div *ngIf="isLoggedIn()">
       <mat-menu #appMenu="matMenu">
         <ng-template matMenuContent>
+          <a mat-menu-item routerLink="/rental/create">My Activity</a>
           <a mat-menu-item routerLink="/user">Profile</a>
           <a mat-menu-item routerLink="/user">Settings</a>
           <a mat-menu-item (click)="logout()">Logout</a>

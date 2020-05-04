@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BaseURL: 'http://localhost:9090/api/',
-  ImgUrl: 'http://localhost:9090/file/images/',
+  ImgUrl: 'http://localhost:9090/public/images/',
   SocketUrl: 'http://localhost:9091'
 };
 

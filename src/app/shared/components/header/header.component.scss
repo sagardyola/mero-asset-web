@@ -4,17 +4,12 @@ mat-toolbar {
   background-color: $dark-200;
 }
 
-.logo {
-  padding: 0px 5px;
-  font-size: 20px;
-}
-
 .login {
   border-radius: 0;
   background-color: $primary-100;
   border: 1px solid $accent;
 }
 
-// a {
-//   color: #ffffff;
-// }
+.brand {
+  height: 2.7rem;
+}

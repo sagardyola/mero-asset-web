@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { ContentsModule } from './contents/contents.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { RentalModule } from './rental/rental.module';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -29,6 +30,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ContentsModule,
     AuthModule,
     UserModule,
+    RentalModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

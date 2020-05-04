@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './user/user.module#UserModule'
   },
   {
+    path: 'rental',
+    loadChildren: './rental/rental.module#RentalModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }

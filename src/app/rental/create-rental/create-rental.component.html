@@ -1,0 +1,49 @@
+<div class="container">
+  <h1 class="text-center">Add your Property</h1>
+  <form #rentalForm="ngForm">
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="rental.title" name="title" #title="ngModel" required>
+        <mat-error align="start" *ngIf="!title.valid && title.touched">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50%">
+        <mat-label>Price</mat-label>
+        <input matInput [(ngModel)]="rental.price" name="price" #price="ngModel" required>
+        <mat-error align="start" *ngIf="!price.valid && price.touched">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Code</mat-label>
+        <input matInput [(ngModel)]="rental.code" name="code" #code="ngModel" required>
+        <mat-error align="start" *ngIf="!code.valid && code.touched">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50%">
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel" required>
+        <mat-error align="start" *ngIf="!location.valid && location.touched">
+          <strong>required field*</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <mat-checkbox [(ngModel)]="rental.negotiable" name="negotiable">Negotiable</mat-checkbox>
+
+    <div fxLayout="row" fxLayoutAlign="end end">
+      <button mat-stroked-button [disabled]="!rentalForm.valid" *ngIf="!submitting" (click)="create()">Create</button>
+      <button mat-stroked-button disabled *ngIf="submitting">Creating</button>
+    </div>
+
+  </form>
+</div>
