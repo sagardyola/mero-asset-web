@@ -1,9 +1,13 @@
+// enum Color {
+//     Red, Green
+// }
+
 export class Rental {
     code: string;
     title: string;
     price: number;
     negotiable: boolean;
-    area: Number;
+    dimension: Number;
     location: string;
     description: string;
     image: string;

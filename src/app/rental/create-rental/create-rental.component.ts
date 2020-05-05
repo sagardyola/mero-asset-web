@@ -9,9 +9,14 @@ import { Rental } from 'src/app/shared/models/rental.model';
   templateUrl: './create-rental.component.html',
   styleUrls: ['./create-rental.component.scss']
 })
+
 export class CreateRentalComponent implements OnInit {
   rental;
   submitting: boolean = false;
+
+  itemFors = [{ id: '1', name: 'sagar' },
+  { id: '2', name: 'sunita' }];
+
   constructor(
     public router: Router,
     public msgService: MsgService,

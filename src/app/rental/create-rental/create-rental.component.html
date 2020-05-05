@@ -10,20 +10,22 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="50%">
+      <mat-form-field fxFlex="35%">
         <mat-label>Price</mat-label>
-        <input matInput [(ngModel)]="rental.price" name="price" #price="ngModel" required>
+        <input matInput [(ngModel)]="rental.price" name="price" #price="ngModel" type="number" required>
         <mat-error align="start" *ngIf="!price.valid && price.touched">
           <strong>required field*</strong>
         </mat-error>
       </mat-form-field>
+
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.negotiable" name="negotiable">Negotiable</mat-checkbox>
     </div>
 
     <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
       <mat-form-field fxFlex="50%">
-        <mat-label>Code</mat-label>
-        <input matInput [(ngModel)]="rental.code" name="code" #code="ngModel" required>
-        <mat-error align="start" *ngIf="!code.valid && code.touched">
+        <mat-label>Dimension</mat-label>
+        <input matInput [(ngModel)]="rental.dimension" name="dimension" #dimension="ngModel" type="number" required>
+        <mat-error align="start" *ngIf="!dimension.valid && dimension.touched">
           <strong>required field*</strong>
         </mat-error>
       </mat-form-field>
@@ -38,7 +40,106 @@
     </div>
 
 
-    <mat-checkbox [(ngModel)]="rental.negotiable" name="negotiable">Negotiable</mat-checkbox>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="rental.description" name="description"></textarea>
+      </mat-form-field>
+    </div>
+    <!-- Description and image -->
+
+
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Item For</mat-label>
+        <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor">
+          <mat-option *ngFor="let itemFor of itemFors" value="rental.itemFor">{{itemFor.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field fxFlex="50%">
+        <mat-label>Item Type</mat-label>
+        <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="rental.gender" name="gender" id="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50%">
+        <mat-label>Marital Status</mat-label>
+        <mat-select [(ngModel)]="rental.maritalStatus" name="maritalStatus" id="maritalStatus">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Overnight Guests</mat-label>
+        <mat-select [(ngModel)]="rental.overnightGuests" name="overnightGuests" id="overnightGuests">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50%">
+        <mat-label>Party Habits</mat-label>
+        <mat-select [(ngModel)]="rental.partyHabits" name="partyHabits" id="partyHabits">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-form-field fxFlex="50%">
+        <mat-label>Smoker</mat-label>
+        <mat-select [(ngModel)]="rental.smoker" name="smoker" id="smoker">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.petsFriendly" name="petsFriendly">Pets Friendly</mat-checkbox>
+
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.livingRoom" name="livingRoom">Living Room</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.bedRoom" name="bedRoom">Bedroom</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.kitchen" name="kitchen">Kitchen</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.bathRoom" name="bathRoom">Bathroom</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.balcony" name="balcony">Balcony</mat-checkbox>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.garden" name="garden">Garden</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.parkingSpace" name="parkingSpace">Parking Space</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.garage" name="garage">Garage</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.securityGuard" name="securityGuard">Security Guard</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.backupGenerator" name="backupGenerator">Backup Generator
+      </mat-checkbox>
+    </div>
+    <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.waterSupply" name="waterSupply">Water Supply</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.internet" name="internet">Internet</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.gymnasium" name="gymnasium">Gymnasium</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.swimmingPool" name="swimmingPool">Swimming Pool</mat-checkbox>
+      <mat-checkbox fxFlex="15%" [(ngModel)]="rental.elevator" name="elevator">Elevator</mat-checkbox>
+    </div>
 
     <div fxLayout="row" fxLayoutAlign="end end">
       <button mat-stroked-button [disabled]="!rentalForm.valid" *ngIf="!submitting" (click)="create()">Create</button>

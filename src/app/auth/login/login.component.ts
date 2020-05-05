@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
   public submitting: boolean = false;
   user;
+  hide = true;
 
   constructor(
     public router: Router,

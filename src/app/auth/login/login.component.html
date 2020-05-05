@@ -2,7 +2,7 @@
   <h1 class="text-center">Sign in</h1>
   <form #loginForm="ngForm">
     <div fxLayout="column" fxGap="20">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Username or Email</mat-label>
         <input matInput [(ngModel)]="user.userName" name="userName" #username="ngModel" placeholder="Ex. user@mail.com"
           required>
@@ -11,9 +11,14 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" type="password" required>
+        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel"
+          [type]="hide ? 'password' : 'text'" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
         <mat-error align="start" [hidden]="password.valid || password.pristine">
           <strong>required field*</strong>
         </mat-error>
