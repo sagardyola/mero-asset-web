@@ -39,16 +39,13 @@
       </mat-form-field>
     </div>
 
-
     <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
       <mat-form-field fxFlex="50%">
         <mat-label>Description</mat-label>
         <textarea matInput [(ngModel)]="rental.description" name="description"></textarea>
       </mat-form-field>
     </div>
-    <!-- Description and image -->
-
-
+    <!-- image -->
 
     <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
       <mat-form-field fxFlex="50%">
@@ -57,7 +54,6 @@
           <mat-option *ngFor="let itemFor of itemFors" value="rental.itemFor">{{itemFor.name}}</mat-option>
         </mat-select>
       </mat-form-field>
-
 
       <mat-form-field fxFlex="50%">
         <mat-label>Item Type</mat-label>
