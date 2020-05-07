@@ -17,6 +17,10 @@ export class AuthService {
         return this.http.post(this.url + 'login', data, this.getHeaders());
     }
 
+    getRegister() {
+        return this.http.get(this.url + 'register', this.getHeaders());
+    }
+
     register(data: User) {
         return this.http.post(this.url + 'register', data, this.getHeaders());
 

@@ -11,6 +11,7 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class RegisterComponent implements OnInit {
   user;
+  genderVal;
   submitting: boolean = false;
   constructor(
     public router: Router,
@@ -21,6 +22,13 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService
+      .getRegister()
+      .subscribe((data: any) => {
+        this.genderVal = data.gender;
+      }, err => {
+        this.msgService.showError(err);
+      })
   }
 
   register() {

@@ -51,15 +51,14 @@
       <mat-form-field fxFlex="50%">
         <mat-label>Item For</mat-label>
         <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor">
-          <mat-option *ngFor="let itemFor of itemFors" value="rental.itemFor">{{itemFor.name}}</mat-option>
+          <mat-option *ngFor="let itemFor of itemForVal" [value]="itemFor">{{itemFor}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field fxFlex="50%">
         <mat-label>Item Type</mat-label>
         <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
+          <mat-option *ngFor="let itemType of itemTypeVal" [value]="itemType">{{itemType}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -68,16 +67,15 @@
       <mat-form-field fxFlex="50%">
         <mat-label>Gender</mat-label>
         <mat-select [(ngModel)]="rental.gender" name="gender" id="gender">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
+          <mat-option *ngFor="let gender of genderVal" [value]="gender">{{gender}}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field fxFlex="50%">
         <mat-label>Marital Status</mat-label>
         <mat-select [(ngModel)]="rental.maritalStatus" name="maritalStatus" id="maritalStatus">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
+          <mat-option *ngFor="let maritalStatus of maritalStatusVal" [value]="maritalStatus">{{maritalStatus}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -86,16 +84,15 @@
       <mat-form-field fxFlex="50%">
         <mat-label>Overnight Guests</mat-label>
         <mat-select [(ngModel)]="rental.overnightGuests" name="overnightGuests" id="overnightGuests">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
+          <mat-option *ngFor="let overnightGuests of overnightGuestsVal" [value]="overnightGuests">{{overnightGuests}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field fxFlex="50%">
         <mat-label>Party Habits</mat-label>
         <mat-select [(ngModel)]="rental.partyHabits" name="partyHabits" id="partyHabits">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
+          <mat-option *ngFor="let partyHabits of partyHabitsVal" [value]="partyHabits">{{partyHabits}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -104,8 +101,7 @@
       <mat-form-field fxFlex="50%">
         <mat-label>Smoker</mat-label>
         <mat-select [(ngModel)]="rental.smoker" name="smoker" id="smoker">
-          <mat-option value="Male">Male</mat-option>
-          <mat-option value="Female">Female</mat-option>
+          <mat-option *ngFor="let smoker of smokerVal" [value]="smoker">{{smoker}}</mat-option>
         </mat-select>
       </mat-form-field>
 

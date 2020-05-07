@@ -14,11 +14,17 @@ export class CreateRentalComponent implements OnInit {
   rental;
   submitting: boolean = false;
 
-  itemFors = [{ id: '1', name: 'sagar' },
-  { id: '2', name: 'sunita' }];
+  itemForVal;
+  itemTypeVal;
+  genderVal;
+  maritalStatusVal;
+  overnightGuestsVal;
+  partyHabitsVal;
+  smokerVal;
 
   constructor(
     public router: Router,
+    // public activeRoute: ActivatedRoute,
     public msgService: MsgService,
     public rentalService: RentalService
   ) {
@@ -26,6 +32,19 @@ export class CreateRentalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.rentalService
+      .getCreate()
+      .subscribe((data: any) => {
+        this.itemForVal = data.itemFor;
+        this.itemTypeVal = data.itemType;
+        this.genderVal = data.gender;
+        this.maritalStatusVal = data.maritalStatus;
+        this.overnightGuestsVal = data.overnightGuests;
+        this.partyHabitsVal = data.partyHabits;
+        this.smokerVal = data.smoker;
+      }, err => {
+        this.msgService.showError(err);
+      })
   }
 
   create() {
@@ -42,5 +61,4 @@ export class CreateRentalComponent implements OnInit {
         }
       )
   }
-
 }

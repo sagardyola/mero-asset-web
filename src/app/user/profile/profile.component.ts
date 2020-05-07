@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../services/user.service';
 import { MsgService } from 'src/app/shared/services/msg.service';
 import { User } from 'src/app/shared/models/user.model';
@@ -12,7 +12,6 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class ProfileComponent implements OnInit {
   user;
-
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,

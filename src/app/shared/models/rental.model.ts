@@ -12,7 +12,9 @@ export class Rental {
     description: string;
     image: string;
 
-    itemFor: string;
+    // itemFor: string;
+
+    itemFor: String;
     itemType: string;
 
     gender: string;
@@ -49,5 +51,7 @@ export class Rental {
         for (let key in details) {
             this[key] = details[key] || void (0);
         }
+
+
     }
 }
