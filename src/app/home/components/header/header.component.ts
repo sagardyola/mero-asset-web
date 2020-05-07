@@ -29,5 +29,4 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['']);
   }
-
 }

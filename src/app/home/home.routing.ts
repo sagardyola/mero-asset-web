@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { HomeComponent } from './home/home.component';
 import { FaqComponent } from './faq/faq.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { WhyMeroassetComponent } from './why-meroasset/why-meroasset.component';
 
-const contentRoute: Routes = [
+const homeRoute: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: HomepageComponent
     },
     {
         path: 'about-us',
@@ -40,7 +40,7 @@ const contentRoute: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(contentRoute)],
+    imports: [RouterModule.forChild(homeRoute)],
     exports: [RouterModule]
 })
-export class ContentsRoutingModule { }
+export class HomeRoutingModule { }
