@@ -1,27 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateRentalComponent } from './create-rental/create-rental.component';
-import { UpdateRentalComponent } from './update-rental/update-rental.component';
-import { DetailsRentalComponent } from './details-rental/details-rental.component';
-import { RemoveRentalComponent } from './remove-rental/remove-rental.component';
-
+import { CreateRentalComponent } from './components/create-rental/create-rental.component';
+import { UpdateRentalComponent } from './components/update-rental/update-rental.component';
+import { DetailsRentalComponent } from './components/details-rental/details-rental.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainComponent } from './layouts/main/main.component';
 
 const rentalRoute: Routes = [
     {
-        path: 'create',
-        component: CreateRentalComponent
-    },
-    {
-        path: 'update/:id',
-        component: UpdateRentalComponent
-    },
-    {
-        path: 'details/:id',
-        component: DetailsRentalComponent
-    },
-    {
-        path: 'remove/:id',
-        component: RemoveRentalComponent
+        path: '',
+        component: DashboardComponent,
+        children: [
+            {
+                path: '',
+                component: MainComponent
+            },
+            {
+                path: 'create',
+                component: CreateRentalComponent
+            },
+            {
+                path: 'update/:id',
+                component: UpdateRentalComponent
+            },
+            {
+                path: 'details/:id',
+                component: DetailsRentalComponent
+            }
+        ]
     }
 ];
 

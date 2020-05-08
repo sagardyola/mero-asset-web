@@ -1,0 +1,22 @@
+<div class="container">
+
+  <a mat-menu-item routerLink="/rental/create">Create</a>
+
+  <!-- over mode -->
+  <mat-drawer-container hasBackdrop="true">
+    <mat-drawer #drawer mode="side">I'm a drawer</mat-drawer>
+
+    <mat-drawer-content>
+
+      <mat-toolbar>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+
+
+
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MsgService } from 'src/app/shared/services/msg.service';
-import { RentalService } from '../services/rental.service';
+import { RentalService } from './../../services/rental.service';
 import { Rental } from 'src/app/shared/models/rental.model';
 
 @Component({
