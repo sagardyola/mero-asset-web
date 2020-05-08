@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CreateRentalComponent } from './components/create-rental/create-rental.component';
 import { UpdateRentalComponent } from './components/update-rental/update-rental.component';
 import { DetailsRentalComponent } from './components/details-rental/details-rental.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './../layouts/dashboard/dashboard.component';
 import { MainComponent } from './layouts/main/main.component';
 
 const rentalRoute: Routes = [

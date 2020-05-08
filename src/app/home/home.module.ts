@@ -10,8 +10,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { WhyMeroassetComponent } from './why-meroasset/why-meroasset.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -21,18 +20,12 @@ import { FooterComponent } from './components/footer/footer.component';
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
     WhyMeroassetComponent,
-    HomepageComponent,
-    HeaderComponent,
-    FooterComponent
+    HomepageComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule
-  ],
-  exports: [
-    HeaderComponent,
-    FooterComponent
   ]
 })
 export class HomeModule { }

@@ -13,10 +13,20 @@ import { UserModule } from './user/user.module';
 import { RentalModule } from './rental/rental.module';
 
 
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
+import { DefaultComponent } from './layouts/default/default.component';
+// import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DefaultComponent,
+    // DashboardComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
