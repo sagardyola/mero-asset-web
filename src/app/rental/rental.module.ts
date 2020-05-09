@@ -10,10 +10,12 @@ import { CreateRentalComponent } from './components/create-rental/create-rental.
 import { DetailsRentalComponent } from './components/details-rental/details-rental.component';
 import { UpdateRentalComponent } from './components/update-rental/update-rental.component';
 import { DashboardComponent } from './../layouts/dashboard/dashboard.component';
-import { MainComponent } from './layouts/main/main.component';
-import { RentalComponent } from './layouts/rental/rental.component';
 
+import { ListRentalComponent } from './components/list-rental/list-rental.component';
+import { SidenavRentalComponent } from './components/sidenav-rental/sidenav-rental.component';
+import { MainRentalComponent } from './components/main-rental/main-rental.component';
 
+// import { FlexLayoutModule } from '@angular/flex-layout';
 
 // import { BrowserModule } from '@angular/platform-browser';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,17 +27,19 @@ import { RentalComponent } from './layouts/rental/rental.component';
     DetailsRentalComponent,
     UpdateRentalComponent,
     DashboardComponent,
-    MainComponent,
-    RentalComponent
+
+    ListRentalComponent,
+    SidenavRentalComponent,
+    MainRentalComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RentalRoutingModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
 
-
+    // FlexLayoutModule
 
     // BrowserModule,
     // BrowserAnimationsModule

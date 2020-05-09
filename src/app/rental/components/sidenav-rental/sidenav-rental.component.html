@@ -1,0 +1,22 @@
+<mat-list>
+  <!-- <div mat-subheader>Menu</div> -->
+  <mat-list-item>
+    <button class="menu-item" mat-button routerLink="/rental">
+      <mat-icon>pie_chart</mat-icon>
+      Main
+    </button>
+  </mat-list-item>
+
+  <mat-list-item>
+    <button class="menu-item" mat-button routerLink="/rental/create">
+      <mat-icon>add</mat-icon>
+      Post an ad?
+    </button>
+  </mat-list-item>
+
+  <mat-list-item>
+    <button mat-button (click)="openDialog()">Open dialog</button>
+  </mat-list-item>
+
+
+</mat-list>

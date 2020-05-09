@@ -4,7 +4,8 @@ import { CreateRentalComponent } from './components/create-rental/create-rental.
 import { UpdateRentalComponent } from './components/update-rental/update-rental.component';
 import { DetailsRentalComponent } from './components/details-rental/details-rental.component';
 import { DashboardComponent } from './../layouts/dashboard/dashboard.component';
-import { MainComponent } from './layouts/main/main.component';
+import { SidenavRentalComponent } from './components/sidenav-rental/sidenav-rental.component';
+import { MainRentalComponent } from './components/main-rental/main-rental.component';
 
 const rentalRoute: Routes = [
     {
@@ -13,7 +14,12 @@ const rentalRoute: Routes = [
         children: [
             {
                 path: '',
-                component: MainComponent
+                component: SidenavRentalComponent,
+                outlet: 'sidenav'
+            },
+            {
+                path: '',
+                component: MainRentalComponent,
             },
             {
                 path: 'create',

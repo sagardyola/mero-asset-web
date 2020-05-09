@@ -1,4 +1,18 @@
-.container {
-  width: 90%;
-  margin: 20px auto;
+// mat-drawer-container {
+//   width: 100%;
+//   margin: 20px auto;
+// }
+
+
+
+
+.menu-item {
+  width: 100%;
+  border-radius: 0;
+  text-align: left;
+  padding: 10px;
+}
+
+.menu-item:hover {
+  background: #eee;
 }

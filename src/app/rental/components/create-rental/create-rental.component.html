@@ -1,6 +1,6 @@
-<div class="container">
-  <h1 class="text-center">Add your Property</h1>
-  <form #rentalForm="ngForm">
+<h2 mat-dialog-title>Add your property</h2>
+<form #rentalForm="ngForm">
+  <mat-dialog-content class="mat-typography">
     <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
       <mat-form-field fxFlex="50%">
         <mat-label>Title</mat-label>
@@ -133,10 +133,19 @@
       <mat-checkbox fxFlex="15%" [(ngModel)]="rental.elevator" name="elevator">Elevator</mat-checkbox>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="end end">
+    <!-- <div fxLayout="row" fxLayoutAlign="end end">
       <button mat-stroked-button [disabled]="!rentalForm.valid" *ngIf="!submitting" (click)="create()">Create</button>
       <button mat-stroked-button disabled *ngIf="submitting">Creating</button>
-    </div>
+    </div> -->
 
-  </form>
-</div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" [disabled]="!rentalForm.valid" *ngIf="!submitting"
+      (click)="create()">Create</button>
+    <button mat-button disabled *ngIf="submitting">Creating</button>
+
+    <!-- <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+  </mat-dialog-actions>
+</form>
