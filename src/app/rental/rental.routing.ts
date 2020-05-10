@@ -6,6 +6,7 @@ import { DetailsRentalComponent } from './components/details-rental/details-rent
 import { DashboardComponent } from './../layouts/dashboard/dashboard.component';
 import { SidenavRentalComponent } from './components/sidenav-rental/sidenav-rental.component';
 import { MainRentalComponent } from './components/main-rental/main-rental.component';
+import { ListRentalComponent } from './components/list-rental/list-rental.component';
 
 const rentalRoute: Routes = [
     {
@@ -19,20 +20,24 @@ const rentalRoute: Routes = [
             },
             {
                 path: '',
-                component: MainRentalComponent,
+                component: MainRentalComponent
             },
             {
-                path: 'create',
-                component: CreateRentalComponent
-            },
-            {
-                path: 'update/:id',
-                component: UpdateRentalComponent
-            },
-            {
-                path: 'details/:id',
-                component: DetailsRentalComponent
+                path: 'viewRental',
+                component: ListRentalComponent
             }
+            // {
+            //     path: 'create',
+            //     component: CreateRentalComponent
+            // },
+            // {
+            //     path: 'update/:id',
+            //     component: UpdateRentalComponent
+            // },
+            // {
+            //     path: 'details/:id',
+            //     component: DetailsRentalComponent
+            // }
         ]
     }
 ];

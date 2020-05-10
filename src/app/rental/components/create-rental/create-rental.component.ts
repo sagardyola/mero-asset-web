@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MsgService } from 'src/app/shared/services/msg.service';
 import { RentalService } from './../../services/rental.service';
 import { Rental } from 'src/app/shared/models/rental.model';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-rental',
@@ -26,7 +27,8 @@ export class CreateRentalComponent implements OnInit {
     public router: Router,
     // public activeRoute: ActivatedRoute,
     public msgService: MsgService,
-    public rentalService: RentalService
+    public rentalService: RentalService,
+    private dialogRef: MatDialogRef<CreateRentalComponent>
   ) {
     this.rental = new Rental({});
   }
@@ -52,8 +54,11 @@ export class CreateRentalComponent implements OnInit {
     this.rentalService.create(this.rental)
       .subscribe(
         (data) => {
+          this.dialogRef.close(true);
           this.msgService.showInfo('Property Added');
-          this.router.navigate(['/auth/login']);
+
+
+          // this.router.navigate(['/auth/login']);
         },
         error => {
           this.msgService.showError(error);

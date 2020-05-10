@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 import { MatNativeDateModule } from '@angular/material/core';
 
@@ -32,6 +33,7 @@ const material = [
   MatDatepickerModule,
   MatCheckboxModule,
   MatDialogModule,
+  MatTableModule,
   MatNativeDateModule
 ]
 

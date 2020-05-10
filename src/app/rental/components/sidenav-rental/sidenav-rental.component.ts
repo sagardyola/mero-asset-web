@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { CreateRentalComponent } from './../create-rental/create-rental.component';
 
 @Component({
   selector: 'app-sidenav-rental',
@@ -9,17 +7,9 @@ import { CreateRentalComponent } from './../create-rental/create-rental.componen
 })
 export class SidenavRentalComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
-  }
-
-
-  openDialog() {
-    const dialogRef = this.dialog.open(CreateRentalComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 }

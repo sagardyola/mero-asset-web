@@ -23,19 +23,16 @@
 
     <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
       <mat-form-field fxFlex="50%">
-        <mat-label>Dimension</mat-label>
-        <input matInput [(ngModel)]="rental.dimension" name="dimension" #dimension="ngModel" type="number" required>
-        <mat-error align="start" *ngIf="!dimension.valid && dimension.touched">
-          <strong>required field*</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field fxFlex="50%">
         <mat-label>Location</mat-label>
         <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel" required>
         <mat-error align="start" *ngIf="!location.valid && location.touched">
           <strong>required field*</strong>
         </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="50%">
+        <mat-label>Dimension</mat-label>
+        <input matInput [(ngModel)]="rental.dimension" name="dimension" #dimension="ngModel" type="number">
       </mat-form-field>
     </div>
 
@@ -141,11 +138,10 @@
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" [disabled]="!rentalForm.valid" *ngIf="!submitting"
-      (click)="create()">Create</button>
-    <button mat-button disabled *ngIf="submitting">Creating</button>
+    <button mat-button [disabled]="!rentalForm.valid" *ngIf="!submitting" (click)="create()">Save</button>
+    <button mat-button disabled *ngIf="submitting" cdkFocusInitial>Saving</button>
 
     <!-- <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+    <button mat-button [mat-dialog-close]=" true" cdkFocusInitial>Install</button> -->
   </mat-dialog-actions>
 </form>
