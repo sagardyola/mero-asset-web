@@ -15,7 +15,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatNativeDateModule } from '@angular/material/core';
 
 const material = [
@@ -34,6 +35,9 @@ const material = [
   MatCheckboxModule,
   MatDialogModule,
   MatTableModule,
+  MatStepperModule,
+  MatProgressBarModule,
+
   MatNativeDateModule
 ]
 

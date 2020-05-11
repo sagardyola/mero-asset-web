@@ -8,10 +8,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MsgService } from './services/msg.service';
 import { UploadService } from './services/upload.service';
 import { SocketService } from './services/socket.service';
+import { ProgressComponent } from './progress/progress.component';
 
 @NgModule({
   declarations: [
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProgressComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { SocketService } from './services/socket.service';
   ],
   exports: [
     PageNotFoundComponent,
+    ProgressComponent,
     FlexLayoutModule,
     MaterialModule
   ],

@@ -14,7 +14,6 @@ import { DashboardComponent } from './../layouts/dashboard/dashboard.component';
 import { ListRentalComponent } from './components/list-rental/list-rental.component';
 import { SidenavRentalComponent } from './components/sidenav-rental/sidenav-rental.component';
 import { MainRentalComponent } from './components/main-rental/main-rental.component';
-import { createComponent } from '@angular/compiler/src/core';
 
 // import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -39,6 +38,7 @@ import { createComponent } from '@angular/compiler/src/core';
     RentalRoutingModule,
     HttpClientModule,
     FormsModule
+    // ReactiveFormsModule
 
     // FlexLayoutModule
 
