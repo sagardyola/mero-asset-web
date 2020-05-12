@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add your property</h2>
+<h2 mat-dialog-title>Enter your property details</h2>
 <form #rentalForm="ngForm">
   <mat-dialog-content class="mat-typography">
     <div *ngIf="isLoading">
@@ -61,20 +61,25 @@
             <mat-label>Description</mat-label>
             <textarea matInput [(ngModel)]="rental.description" name="description"></textarea>
           </mat-form-field>
-
           <mat-checkbox fxFlex="50%" [(ngModel)]="rental.negotiable" name="negotiable">Negotiable</mat-checkbox>
         </div>
-
-        <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
-          <input fxFlex="50%" type="file" (change)="fileChanged($event)">
-          <img src="{{imgUrl}}{{rental.image}}" alt="Image" fxFlex="50%" width="100%" *ngIf="rental.image">
-        </div>
-
-
         <div fxLayoutAlign="end center">
           <button mat-stroked-button matStepperNext>Next</button>
         </div>
       </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Image</ng-template>
+        <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
+          <input fxFlex="50%" type="file" (change)="fileChanged($event)">
+          <img src="{{imgUrl}}{{rental.image}}" alt="Image" fxFlex="50%" width="100%" *ngIf="rental.image">
+        </div>
+        <div fxLayoutAlign="end center">
+          <button mat-stroked-button matStepperPrevious>Back</button>
+          <button mat-stroked-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
       <mat-step>
         <ng-template matStepLabel>Looking For</ng-template>
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
@@ -181,27 +186,13 @@
         </div>
         <div fxLayoutAlign="end center">
           <button mat-stroked-button matStepperPrevious>Back</button>
-          <button mat-stroked-button matStepperNext>Next</button>
-        </div>
-      </mat-step>
-
-      <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-        <div fxLayoutAlign="end center">
-          <button mat-stroked-button matStepperPrevious>Back</button>
-          <button mat-stroked-button (click)="stepper.reset()">Reset</button>
         </div>
       </mat-step>
     </mat-vertical-stepper>
-
-
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
     <button mat-button [disabled]="!rentalForm.valid" *ngIf="!submitting" (click)="create()">Save</button>
     <button mat-button disabled *ngIf="submitting" cdkFocusInitial>Saving</button>
-
-
   </mat-dialog-actions>
 </form>

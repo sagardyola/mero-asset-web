@@ -1,0 +1,26 @@
+@import 'config';
+@import 'text';
+
+// @import 'utilities';
+* {
+  font-size: 1rem;
+}
+
+h2 {
+  display: inline;
+}
+
+img {
+  width: 100%;
+}
+
+// table {
+//   border-spacing: 20px;
+
+//   border: 2px solid;
+// }
+
+td {
+  vertical-align: top;
+  padding-right: 20px;
+}

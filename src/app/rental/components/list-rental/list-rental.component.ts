@@ -21,7 +21,7 @@ export class ListRentalComponent implements OnInit {
   displayedColumns = ['title', 'price', 'dimension', 'location', 'itemFor', 'itemType', 'createdAt', 'action'];
 
   constructor(
-    public router: Router,
+    // public router: Router,
     public rentalService: RentalService,
     public msgService: MsgService,
     public dialogService: DialogService,

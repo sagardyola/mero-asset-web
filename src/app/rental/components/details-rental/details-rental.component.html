@@ -1,1 +1,137 @@
-<p>details-rental works!</p>
+<h1 class="text-center">{{rental.itemType}} for {{rental.itemFor}}</h1>
+
+
+<div fxLayout="row" fxLayoutGap="2%">
+  <div fxFlex="50%">
+    <img src="{{imgUrl}}{{rental.image}}" alt="Image" *ngIf="rental.image">
+  </div>
+  <div fxFlex="50%">
+    <table>
+      <tr>
+        <td class="font-weight-bold">Code</td>
+        <td>{{rental.code}}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Location</td>
+        <td>{{rental.location}}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Dimension</td>
+        <td>{{rental.dimension}}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Price</td>
+        <td>{{rental.price}}
+          <span *ngIf="rental.negotiable">(Negotiable)</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">
+          Description
+        </td>
+        <td class="text-justify">{{rental.description}}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Added by</td>
+        <td *ngIf="rental.user">{{rental.user.userName}}</td>
+      </tr>
+      <tr>
+        <td class="font-weight-bold">Added on</td>
+        <td>{{rental.createdAt | date:'fullDate'}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutGap="2%">
+  <div fxFlex="50%">
+    <h2>Looking For</h2>
+    <table>
+      <tr>
+        <td>Gender</td>
+        <td>{{rental.gender}}</td>
+      </tr>
+      <tr>
+        <td>Marital Status</td>
+        <td>{{rental.maritalStatus}}</td>
+      </tr>
+    </table>
+  </div>
+  <div fxFlex="50%">
+    <h2>Lifestyle</h2>
+    <table>
+      <tr>
+        <td>Overnight Guests</td>
+        <td>{{rental.overnightGuests}}</td>
+      </tr>
+      <tr>
+        <td>Party Habits</td>
+        <td>{{rental.partyHabits}}</td>
+      </tr>
+      <tr>
+        <td>Smoker</td>
+        <td>{{rental.smoker}}</td>
+      </tr>
+      <tr>
+        <td>Pets Friendly</td>
+        <td *ngIf="rental.petsFriendly">Yes</td>
+        <td *ngIf="!rental.petsFriendly">No</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<h2>Room Details</h2>
+<div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column">
+  <div *ngIf="rental.livingRoom" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Living Room
+  </div>
+  <div *ngIf="rental.bedRoom" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Bedroom
+  </div>
+  <div *ngIf="rental.kitchen" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Kitchen
+  </div>
+  <div *ngIf="rental.bathRoom" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Bathroom
+  </div>
+  <div *ngIf="rental.balcony" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Balcony
+  </div>
+</div>
+
+<h2>Other Features</h2>
+<div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column">
+  <div *ngIf="rental.garden" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Garden
+  </div>
+  <div *ngIf="rental.parkingSpace" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Parking Space
+  </div>
+  <div *ngIf="rental.garage" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Garage
+  </div>
+  <div *ngIf="rental.securityGuard" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Security Guard
+  </div>
+  <div *ngIf="rental.backupGenerator" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Backup Generator
+  </div>
+</div>
+<div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column">
+  <div *ngIf="rental.waterSupply" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Water Supply
+  </div>
+  <div *ngIf="rental.internet" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Internet
+  </div>
+  <div *ngIf="rental.gymnasium" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Gymnasium
+  </div>
+  <div *ngIf="rental.swimmingPool" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Swimming Pool
+  </div>
+  <div *ngIf="rental.elevator" fxFlex="20%">
+    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Elevator
+  </div>
+</div>

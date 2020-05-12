@@ -12,9 +12,8 @@ export class Rental {
     description: string;
     image: string;
 
-    // itemFor: string;
 
-    itemFor: String;
+    itemFor: string;
     itemType: string;
 
     gender: string;
