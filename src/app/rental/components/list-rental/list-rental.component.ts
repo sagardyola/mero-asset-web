@@ -4,9 +4,10 @@ import { environment } from 'src/environments/environment';
 import { RentalService } from './../../services/rental.service';
 import { MsgService } from 'src/app/shared/services/msg.service';
 
-import { CreateRentalComponent } from './../create-rental/create-rental.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SaveRentalComponent } from './../save-rental/save-rental.component';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
+import { DialogService } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-list-rental',
@@ -17,12 +18,13 @@ export class ListRentalComponent implements OnInit {
   rentals: Array<any>;
   isLoading: boolean = false;
   @ViewChild('table') table: MatTable<any>;
-  displayedColumns = ['title', 'price', 'dimension', 'location', 'createdAt', 'action'];
+  displayedColumns = ['title', 'price', 'dimension', 'location', 'itemFor', 'itemType', 'createdAt', 'action'];
 
   constructor(
     public router: Router,
     public rentalService: RentalService,
     public msgService: MsgService,
+    public dialogService: DialogService,
     public dialog: MatDialog
 
   ) {
@@ -42,14 +44,13 @@ export class ListRentalComponent implements OnInit {
   }
 
   onCreate() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
-    const dialogRef = this.dialog.open(CreateRentalComponent, dialogConfig);
-
+    const dialogRef = this.dialog.open(SaveRentalComponent,
+      {
+        disableClose: true,
+        autoFocus: true,
+        width: "60%"
+      });
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(`Dialog result: ${result}`);
       if (result) {
         this.rentalService
           .listAll()
@@ -63,23 +64,48 @@ export class ListRentalComponent implements OnInit {
   }
 
   onUpdate(id) {
+    const dialogRef = this.dialog.open(SaveRentalComponent,
+      {
+        disableClose: true,
+        autoFocus: true,
+        width: "60%",
+        data: {
+          dataKey: id
+        }
+      });
 
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.rentalService
+          .listAll()
+          .subscribe((data: any) => {
+            this.rentals = data;
+          }, err => {
+            this.msgService.showError(err);
+          })
+      }
+    });
   }
 
   remove(id, index) {
-    var con = confirm('Are you sure to remove?');
-    if (con) {
-      this.rentalService.remove(id).subscribe(
-        data => {
-          this.msgService.showInfo('Removed');
-          this.rentals.splice(index, 1);
-          this.table.renderRows();
-        },
-        err => {
-          this.msgService.showError(err);
+    this.dialogService.showRemove()
+      .then((result) => {
+        if (result.value) {
+          this.rentalService.remove(id).subscribe(
+            data => {
+              this.msgService.showInfo('Removed');
+              // this.dialogService.showRemoved();
+              this.rentals.splice(index, 1);
+              this.table.renderRows();
+            },
+            err => {
+              this.msgService.showError(err);
+            }
+          )
         }
-      )
-    }
+      })
   }
 
 }

@@ -16,7 +16,8 @@ export class RentalService {
     }
 
     details(id: string) {
-        return this.http.get(`${this.url}${id}`, this.getHeaders());
+        return this.http.get(this.url + id, this.getHeaders());
+        // return this.http.get(`${this.url}${id}`, this.getHeaders());
     }
 
     getCreate() {

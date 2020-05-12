@@ -8,7 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MsgService } from './services/msg.service';
 import { UploadService } from './services/upload.service';
 import { SocketService } from './services/socket.service';
-import { ProgressComponent } from './progress/progress.component';
+import { ProgressComponent } from './components/progress/progress.component';
+import { DialogService } from './services/dialog.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ProgressComponent } from './progress/progress.component';
     MsgService,
     UploadService,
     SocketService,
+    DialogService
   ]
 })
 export class SharedModule { }

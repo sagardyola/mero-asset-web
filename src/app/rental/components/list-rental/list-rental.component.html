@@ -27,6 +27,16 @@
     <th mat-header-cell *matHeaderCellDef> Location </th>
     <td mat-cell *matCellDef="let rental"> {{rental.location}} </td>
   </ng-container>
+
+  <ng-container matColumnDef="itemFor">
+    <th mat-header-cell *matHeaderCellDef> Item For </th>
+    <td mat-cell *matCellDef="let rental"> {{rental.itemFor}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="itemType">
+    <th mat-header-cell *matHeaderCellDef> Item Type </th>
+    <td mat-cell *matCellDef="let rental"> {{rental.itemType}} </td>
+  </ng-container>
   <!-- {{rental.createdAt | date:'hh:mm a'}} -->
   <ng-container matColumnDef="createdAt">
     <th mat-header-cell *matHeaderCellDef> Posted On </th>

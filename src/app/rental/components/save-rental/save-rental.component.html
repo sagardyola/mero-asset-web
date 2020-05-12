@@ -67,6 +67,7 @@
 
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
           <input fxFlex="50%" type="file" (change)="fileChanged($event)">
+          <img src="{{imgUrl}}{{rental.image}}" alt="Image" fxFlex="50%" width="100%" *ngIf="rental.image">
         </div>
 
 

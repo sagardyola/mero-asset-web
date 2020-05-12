@@ -6,9 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { RentalService } from './services/rental.service';
 import { RentalRoutingModule } from './rental.routing';
 
-import { CreateRentalComponent } from './components/create-rental/create-rental.component';
 import { DetailsRentalComponent } from './components/details-rental/details-rental.component';
-import { UpdateRentalComponent } from './components/update-rental/update-rental.component';
+import { SaveRentalComponent } from './components/save-rental/save-rental.component';
 import { DashboardComponent } from './../layouts/dashboard/dashboard.component';
 
 import { ListRentalComponent } from './components/list-rental/list-rental.component';
@@ -23,9 +22,8 @@ import { MainRentalComponent } from './components/main-rental/main-rental.compon
 
 @NgModule({
   declarations: [
-    CreateRentalComponent,
+    SaveRentalComponent,
     DetailsRentalComponent,
-    UpdateRentalComponent,
     DashboardComponent,
 
     ListRentalComponent,
@@ -49,7 +47,7 @@ import { MainRentalComponent } from './components/main-rental/main-rental.compon
     RentalService
   ],
   entryComponents: [
-    CreateRentalComponent
+    SaveRentalComponent
   ]
 })
 export class RentalModule { }
