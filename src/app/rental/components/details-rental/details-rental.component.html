@@ -3,40 +3,40 @@
 
 <div fxLayout="row" fxLayoutGap="2%">
   <div fxFlex="50%">
-    <img src="{{imgUrl}}{{rental.image}}" alt="Image" *ngIf="rental.image">
+    <img src="{{imgUrl}}{{rental.image}}" alt="Image" class="w-100" *ngIf="rental.image">
   </div>
   <div fxFlex="50%">
     <table>
       <tr>
-        <td class="font-weight-bold">Code</td>
+        <td class="font-weight-bold w-25">Code</td>
         <td>{{rental.code}}</td>
       </tr>
       <tr>
-        <td class="font-weight-bold">Location</td>
+        <td class="font-weight-bold w-25">Location</td>
         <td>{{rental.location}}</td>
       </tr>
       <tr>
-        <td class="font-weight-bold">Dimension</td>
+        <td class="font-weight-bold w-25">Dimension</td>
         <td>{{rental.dimension}}</td>
       </tr>
       <tr>
-        <td class="font-weight-bold">Price</td>
+        <td class="font-weight-bold w-25">Price</td>
         <td>{{rental.price}}
           <span *ngIf="rental.negotiable">(Negotiable)</span>
         </td>
       </tr>
       <tr>
-        <td class="font-weight-bold">
+        <td class="font-weight-bold w-25">
           Description
         </td>
         <td class="text-justify">{{rental.description}}</td>
       </tr>
       <tr>
-        <td class="font-weight-bold">Added by</td>
+        <td class="font-weight-bold w-25">Added by</td>
         <td *ngIf="rental.user">{{rental.user.userName}}</td>
       </tr>
       <tr>
-        <td class="font-weight-bold">Added on</td>
+        <td class="font-weight-bold w-25">Added on</td>
         <td>{{rental.createdAt | date:'fullDate'}}</td>
       </tr>
     </table>
@@ -45,35 +45,39 @@
 
 <div fxLayout="row" fxLayoutGap="2%">
   <div fxFlex="50%">
-    <h2>Looking For</h2>
-    <table>
+    <table class="w-100">
       <tr>
-        <td>Gender</td>
+        <td colspan="2" class="mat-h2">Looking For</td>
+      </tr>
+      <tr>
+        <td class="w-50">Gender</td>
         <td>{{rental.gender}}</td>
       </tr>
       <tr>
-        <td>Marital Status</td>
+        <td class="w-50">Marital Status</td>
         <td>{{rental.maritalStatus}}</td>
       </tr>
     </table>
   </div>
   <div fxFlex="50%">
-    <h2>Lifestyle</h2>
-    <table>
+    <table class="w-100">
       <tr>
-        <td>Overnight Guests</td>
+        <td colspan="2" class="mat-h2">Lifestyle</td>
+      </tr>
+      <tr>
+        <td class="w-50">Overnight Guests</td>
         <td>{{rental.overnightGuests}}</td>
       </tr>
       <tr>
-        <td>Party Habits</td>
+        <td class="w-50">Party Habits</td>
         <td>{{rental.partyHabits}}</td>
       </tr>
       <tr>
-        <td>Smoker</td>
+        <td class="w-50">Smoker</td>
         <td>{{rental.smoker}}</td>
       </tr>
       <tr>
-        <td>Pets Friendly</td>
+        <td class="w-50">Pets Friendly</td>
         <td *ngIf="rental.petsFriendly">Yes</td>
         <td *ngIf="!rental.petsFriendly">No</td>
       </tr>
@@ -100,6 +104,7 @@
   </div>
 </div>
 
+<br>
 <h2>Other Features</h2>
 <div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column">
   <div *ngIf="rental.garden" fxFlex="20%">

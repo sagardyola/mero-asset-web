@@ -1,5 +1,46 @@
-<p>profile works!</p>
-<p>{{user.userName}}</p>
-<p>{{user.email}}</p>
-<p>{{user.firstName}}</p>
-<p>{{user.lastName}}</p>
+  <div class="container" fxLayout="row" fxLayoutGap="2%" fxLayout.lt-sm="column">
+    <div fxFlex="30%">
+      <img mat-card-image class="w-100" src="./../../../assets/images/1.jpg" />
+    </div>
+
+    <div fxFlex="70%" fxLayout="column" fxLayoutGap="4%">
+      <div>
+        <span class="mat-h1 d-table-row">{{user.firstName}} {{user.lastName}}</span>
+        <span class="mat-h4 d-table-row">&#64;{{user.userName}}</span>
+      </div>
+      <table>
+        <tr>
+          <td colspan="2" class="mat-h2">General Information</td>
+        </tr>
+        <tr>
+          <td class="w-25">Birthday</td>
+          <td>{{user.dob | date:'fullDate'}}</td>
+        </tr>
+        <tr>
+          <td class="w-25">Gender</td>
+          <td>{{user.gender}}</td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td colspan="2" class="mat-h2">Contact Information</td>
+        </tr>
+        <tr>
+          <td class="w-25">Phone</td>
+          <td>{{user.phoneNumber}}</td>
+        </tr>
+        <tr>
+          <td class="w-25">Address</td>
+          <td>{{user.address}}</td>
+        </tr>
+        <tr>
+
+          <td class="w-25">E-mail</td>
+          <td>{{user.email}}</td>
+        </tr>
+      </table>
+      <!-- <div>
+        <h2>Additional Information</h2>
+      </div> -->
+    </div>
+  </div>
