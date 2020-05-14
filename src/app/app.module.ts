@@ -12,11 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { DefaultComponent } from './layouts/default/default.component';
-import { HomeModule } from './home/home.module';
-import { AuthModule } from './auth/auth.module';
-import { ExploreModule } from './explore/explore.module';
-import { RentalModule } from './rental/rental.module';
-import { UserModule } from './User/User.module';
+
 
 @NgModule({
   declarations: [
@@ -30,11 +26,6 @@ import { UserModule } from './User/User.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    HomeModule,
-    AuthModule,
-    UserModule,
-    ExploreModule,
-    RentalModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
