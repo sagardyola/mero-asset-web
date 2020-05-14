@@ -7,24 +7,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './user/user.module';
-import { RentalModule } from './rental/rental.module';
-
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
 import { DefaultComponent } from './layouts/default/default.component';
-// import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+import { HomeModule } from './home/home.module';
+import { AuthModule } from './auth/auth.module';
+import { ExploreModule } from './explore/explore.module';
+import { RentalModule } from './rental/rental.module';
+import { UserModule } from './User/User.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DefaultComponent,
-    // DashboardComponent,
+    // DefaultComponent,
     HeaderComponent,
     FooterComponent
   ],
@@ -36,6 +33,7 @@ import { DefaultComponent } from './layouts/default/default.component';
     HomeModule,
     AuthModule,
     UserModule,
+    ExploreModule,
     RentalModule,
     ToastrModule.forRoot(),
   ],

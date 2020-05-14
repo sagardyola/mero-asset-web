@@ -4,6 +4,14 @@
 @import 'sizing';
 @import 'display';
 
+.user-header {
+  padding-left: 10px;
+}
+
+table {
+  padding: 10px;
+  background-color: $light;
+}
 
 // td {
 //   vertical-align: top;

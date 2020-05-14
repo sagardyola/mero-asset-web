@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: './rental/rental.module#RentalModule'
   },
   {
+    path: 'explore',
+    loadChildren: './explore/explore.module#ExploreModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }
