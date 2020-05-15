@@ -1,4 +1,22 @@
 <div class="container">
 
-  <p>explore-rental works!</p>
+  <form #exploreForm="ngForm">
+
+    <!-- <mat-form-field>
+      <mat-label>Item For</mat-label>
+      <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor">
+        <mat-option *ngFor="let itemFor of itemForVal" [value]="itemFor">{{itemFor}}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <mat-form-field fxFlex="50%">
+      <mat-label>Location</mat-label>
+      <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel" required>
+      <mat-error align="start" *ngIf="!location.valid && location.touched">
+        <strong>required field*</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-button [disabled]="!exploreForm.valid" *ngIf="!submitting" (click)="submit()">Search</button>
+    <button mat-button disabled *ngIf="submitting">Searching</button>
+  </form>
 </div>

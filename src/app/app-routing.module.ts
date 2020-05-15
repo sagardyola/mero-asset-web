@@ -1,27 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './home/home.module#HomeModule'
+    component: HomepageComponent
+  },
+  {
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule'
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'user',
-    loadChildren: './user/user.module#UserModule'
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: 'rental',
-    loadChildren: './rental/rental.module#RentalModule'
+    loadChildren: () => import('./rental/rental.module').then(m => m.RentalModule)
   },
   {
     path: 'explore',
-    loadChildren: './explore/explore.module#ExploreModule'
+    loadChildren: () => import('./explore/explore.module').then(m => m.ExploreModule)
   },
   {
     path: '**',

@@ -6,13 +6,8 @@ import { FaqComponent } from './faq/faq.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { WhyMeroassetComponent } from './why-meroasset/why-meroasset.component';
-import { HomepageComponent } from './homepage/homepage.component';
 
 const homeRoute: Routes = [
-    {
-        path: '',
-        component: HomepageComponent
-    },
     {
         path: 'about-us',
         component: AboutUsComponent

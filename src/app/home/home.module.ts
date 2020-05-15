@@ -9,8 +9,6 @@ import { FaqComponent } from './faq/faq.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { WhyMeroassetComponent } from './why-meroasset/why-meroasset.component';
-import { HomepageComponent } from './homepage/homepage.component';
-
 
 @NgModule({
   declarations: [
@@ -19,8 +17,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     FaqComponent,
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
-    WhyMeroassetComponent,
-    HomepageComponent
+    WhyMeroassetComponent
   ],
   imports: [
     CommonModule,

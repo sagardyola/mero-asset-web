@@ -36,6 +36,10 @@ export class RentalService {
         return this.http.delete(this.url + id, this.getHeaders());
     }
 
+    explore(condition: any) {
+        return this.http.post(environment.BaseURL + 'explore', condition, this.getHeaders());
+    }
+
     upload(data: Rental, files: any, method) {
         return Observable.create(observer => {
             var xhr = new XMLHttpRequest();

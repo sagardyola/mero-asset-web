@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 import { DefaultComponent } from './layouts/default/default.component';
 
@@ -19,7 +20,8 @@ import { DefaultComponent } from './layouts/default/default.component';
     AppComponent,
     // DefaultComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
