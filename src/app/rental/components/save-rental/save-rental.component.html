@@ -11,14 +11,14 @@
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
           <mat-form-field fxFlex="50%">
             <mat-label>Item For</mat-label>
-            <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor">
+            <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor" required>
               <mat-option *ngFor="let itemFor of itemForVal" [value]="itemFor">{{itemFor}}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field fxFlex="50%">
             <mat-label>Item Type</mat-label>
-            <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType">
+            <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType" required>
               <mat-option *ngFor="let itemType of itemTypeVal" [value]="itemType">{{itemType}}</mat-option>
             </mat-select>
           </mat-form-field>
