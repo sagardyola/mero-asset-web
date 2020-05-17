@@ -11,14 +11,16 @@
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
           <mat-form-field fxFlex="50%">
             <mat-label>Item For</mat-label>
-            <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor" required>
+            <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor"
+              (selectionChange)="changeItemFor(rental.itemFor)" required>
               <mat-option *ngFor="let itemFor of itemForVal" [value]="itemFor">{{itemFor}}</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field fxFlex="50%">
             <mat-label>Item Type</mat-label>
-            <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType" required>
+            <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType"
+              (selectionChange)="changeItemType(rental.itemType)" required>
               <mat-option *ngFor="let itemType of itemTypeVal" [value]="itemType">{{itemType}}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -80,7 +82,7 @@
         </div>
       </mat-step>
 
-      <mat-step>
+      <mat-step *ngIf="!hideStepper">
         <ng-template matStepLabel>Looking For</ng-template>
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
           <mat-form-field fxFlex="50%">
@@ -99,13 +101,12 @@
           </mat-form-field>
         </div>
 
-
         <div fxLayoutAlign="end center">
           <button mat-stroked-button matStepperPrevious>Back</button>
           <button mat-stroked-button matStepperNext>Next</button>
         </div>
       </mat-step>
-      <mat-step>
+      <mat-step *ngIf="!hideStepper">
         <ng-template matStepLabel>Lifestyle</ng-template>
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
           <mat-form-field fxFlex="50%">
@@ -141,7 +142,7 @@
           <button mat-stroked-button matStepperNext>Next</button>
         </div>
       </mat-step>
-      <mat-step>
+      <mat-step *ngIf="!hideStepper">
         <ng-template matStepLabel>Room Details</ng-template>
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
           <mat-checkbox fxFlex="50%" [(ngModel)]="rental.livingRoom" name="livingRoom">Living Room</mat-checkbox>

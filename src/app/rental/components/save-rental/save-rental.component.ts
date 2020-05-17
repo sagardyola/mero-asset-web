@@ -20,6 +20,7 @@ export class SaveRentalComponent implements OnInit {
   filesToUpload = [];
   imgUrl;
   url;
+  hideStepper: boolean = false;
 
   itemForVal;
   itemTypeVal;
@@ -67,6 +68,7 @@ export class SaveRentalComponent implements OnInit {
         .subscribe(
           (data: any) => {
             this.rental = data;
+            this.changeItemType(this.rental.itemType)
             this.isLoading = false;
           },
           error => {
@@ -109,4 +111,15 @@ export class SaveRentalComponent implements OnInit {
     // this.filesToUpload.push() if multiple files push
   }
 
+  changeItemFor(val) {
+    if (val == 'Room' || val == 'Flat' || val == 'Apartment' || val == 'House') {
+      // display 4 items of object
+    }
+  }
+
+  changeItemType(val) {
+    if (val == 'Commercial Property' || val == 'Land') {
+      this.hideStepper = true;
+    }
+  }
 }
