@@ -30,16 +30,16 @@ export class SaveRentalComponent implements OnInit {
   partyHabitsVal;
   smokerVal;
 
+  itemTypeValue;
+
   constructor(
     public router: Router,
-    // public activeRoute: ActivatedRoute,
     public msgService: MsgService,
     public rentalService: RentalService,
     public uploadService: UploadService,
     private dialogRef: MatDialogRef<SaveRentalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    // this.id = this.activeRoute.snapshot.params['id'];
     this.rental = new Rental({});
     this.url = environment.BaseURL + 'rental/';
     this.imgUrl = environment.ImgUrl;
@@ -51,12 +51,15 @@ export class SaveRentalComponent implements OnInit {
       .getCreate()
       .subscribe((data: any) => {
         this.itemForVal = data.itemFor;
-        this.itemTypeVal = data.itemType;
         this.genderVal = data.gender;
         this.maritalStatusVal = data.maritalStatus;
         this.overnightGuestsVal = data.overnightGuests;
         this.partyHabitsVal = data.partyHabits;
         this.smokerVal = data.smoker;
+
+        this.itemTypeValue = data.itemType;
+        this.changeItemFor(this.itemTypeValue);
+
         this.isLoading = false;
       }, err => {
         this.isLoading = false;
@@ -102,8 +105,6 @@ export class SaveRentalComponent implements OnInit {
             this.submitting = false;
           })
     }
-
-
   }
 
   fileChanged(ev) {
@@ -112,14 +113,18 @@ export class SaveRentalComponent implements OnInit {
   }
 
   changeItemFor(val) {
-    if (val == 'Room' || val == 'Flat' || val == 'Apartment' || val == 'House') {
-      // display 4 items of object
+    if (val == 'Homestay' || val == 'Roommate') {
+      this.itemTypeVal = this.itemTypeValue.slice(0, 4);
+    } else {
+      this.itemTypeVal = this.itemTypeValue;
     }
+    this.rental.itemType = [];
   }
 
   changeItemType(val) {
     if (val == 'Commercial Property' || val == 'Land') {
       this.hideStepper = true;
+      // clear all the values after changed
     }
   }
 }

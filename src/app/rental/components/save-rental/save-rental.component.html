@@ -20,8 +20,9 @@
           <mat-form-field fxFlex="50%">
             <mat-label>Item Type</mat-label>
             <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType"
-              (selectionChange)="changeItemType(rental.itemType)" required>
-              <mat-option *ngFor="let itemType of itemTypeVal" [value]="itemType">{{itemType}}</mat-option>
+              (selectionChange)="changeItemType(rental.itemType)" required [disabled]="!rental.itemFor">
+              <mat-option *ngFor="let itemType of itemTypeVal" [value]="itemType">
+                {{itemType}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
