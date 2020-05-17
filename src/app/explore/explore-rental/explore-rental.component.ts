@@ -31,10 +31,16 @@ export class ExploreRentalComponent implements OnInit {
       .explore(this.rental)
       .subscribe(
         (data: any) => {
-          this.results = data;
+          if (data.length) {
+            this.results = data;
+          } else {
+            this.msgService.showInfo('No results matched your search query');
+          }
+          this.submitting = false;
         },
         error => {
           this.msgService.showError(error)
+          this.submitting = false;
         }
       )
   }

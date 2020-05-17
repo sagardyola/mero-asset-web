@@ -10,13 +10,33 @@
     </mat-form-field> -->
     <mat-form-field fxFlex="50%">
       <mat-label>Location</mat-label>
-      <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel" required>
-      <mat-error align="start" *ngIf="!location.valid && location.touched">
-        <strong>required field*</strong>
-      </mat-error>
+      <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel">
     </mat-form-field>
 
     <button mat-button [disabled]="!exploreForm.valid" *ngIf="!submitting" (click)="submit()">Search</button>
     <button mat-button disabled *ngIf="submitting">Searching</button>
   </form>
+</div>
+
+<div *ngIf="results.length">
+  {{results.length}} search results
+
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Item For</th>
+      <th>Item type</th>
+      <th>Location</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results">
+        <td>{{result.title}}</td>
+        <td>{{result.itemFor}}</td>
+        <td>{{result.itemType}}</td>
+        <td>{{result.location}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
 </div>
