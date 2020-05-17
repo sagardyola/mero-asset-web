@@ -16,6 +16,7 @@ export class DetailsRentalComponent implements OnInit {
   rental;
   imgUrl;
   isLoading: boolean = false;
+  hideStepper;
 
   constructor(
     public router: Router,
@@ -34,6 +35,10 @@ export class DetailsRentalComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.rental = data;
+
+          if (this.rental.itemType == 'Commercial Property' || this.rental.itemType == 'Land') {
+            this.hideStepper = true;
+          }
           this.isLoading = false;
         },
         error => {

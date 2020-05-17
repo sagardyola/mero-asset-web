@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<div fxLayout="row" fxLayoutGap="2%">
+<div fxLayout="row" fxLayoutGap="2%" *ngIf="!hideStepper">
   <div fxFlex="50%">
     <table class="w-100">
       <tr>
@@ -85,8 +85,8 @@
   </div>
 </div>
 
-<h2>Room Details</h2>
-<div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column">
+<h2 *ngIf="!hideStepper">Room Details</h2>
+<div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column" *ngIf="!hideStepper">
   <div *ngIf="rental.livingRoom" fxFlex="20%">
     <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Living Room
   </div>
