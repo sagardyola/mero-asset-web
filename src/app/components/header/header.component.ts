@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  user;
+  // user;
   constructor(
     public router: Router
   ) {
-    this.user = JSON.parse(localStorage.getItem('user'));
+    // this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   ngOnInit(): void {
@@ -25,6 +25,9 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
+  profile() {
+    this.router.navigate(['/user/' + JSON.parse(localStorage.getItem('user'))])
+  }
   logout() {
     localStorage.clear();
     this.router.navigate(['']);

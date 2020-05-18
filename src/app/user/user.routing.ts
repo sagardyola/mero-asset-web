@@ -6,10 +6,10 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const userRoute: Routes = [
-    {
-        path: '',
-        component: ProfileComponent
-    },
+    // {
+    //     path: '',
+    //     component: ProfileComponent
+    // },
     {
         path: 'edit-profile',
         component: EditProfileComponent
@@ -17,6 +17,10 @@ const userRoute: Routes = [
     {
         path: 'change-password',
         component: ChangePasswordComponent
+    },
+    {
+        path: ':id',
+        component: ProfileComponent
     }
 ];
 

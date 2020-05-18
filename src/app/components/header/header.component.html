@@ -17,7 +17,7 @@
       <mat-menu #appMenu="matMenu">
         <ng-template matMenuContent>
           <a mat-menu-item routerLink="/rental/">My Activity</a>
-          <a mat-menu-item routerLink="/user">Profile</a>
+          <a mat-menu-item (click)="profile()">Profile</a>
           <a mat-menu-item routerLink="/user">Settings</a>
           <a mat-menu-item (click)="logout()">Logout</a>
         </ng-template>

@@ -40,9 +40,10 @@
       <mat-card-content>
         <p>{{result.itemType}} &#40;{{result.itemFor}}&#41;</p>
         <p>Land(Sale)</p>
+        <a routerLink="/explore/{{result._id}}">Details</a>
       </mat-card-content>
       <mat-card-actions>
-        Added by <button mat-button>{{result.user.userName}}</button>
+        Added by <a mat-button routerLink="/user/{{result.user.userName}}">{{result.user.userName}}</a>
       </mat-card-actions>
     </mat-card>
   </div>

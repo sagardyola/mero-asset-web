@@ -11,6 +11,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  id;
   user;
   constructor(
     public router: Router,
@@ -18,16 +19,19 @@ export class ProfileComponent implements OnInit {
     public userService: UserService,
     public msgService: MsgService
   ) {
+    this.id = this.activeRoute.snapshot.params['id'];
     this.user = new User({});
   }
 
   ngOnInit(): void {
     this.userService
-      .profile()
+      .profile(this.id)
       .subscribe((data: any) => {
         this.user = data;
       }, err => {
-        this.msgService.showError(err);
+        // this.msgService.showError(err);
+        this.router.navigate(['**']);
+
       })
   }
 

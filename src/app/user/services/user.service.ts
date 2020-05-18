@@ -12,8 +12,8 @@ export class UserService {
 
     }
 
-    profile() {
-        return this.http.get(this.url, this.getHeaders());
+    profile(id) {
+        return this.http.get(this.url + '/' + id, this.getHeaders());
     }
 
     private getHeaders() {

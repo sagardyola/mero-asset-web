@@ -42,8 +42,10 @@ export class DetailsRentalComponent implements OnInit {
           this.isLoading = false;
         },
         error => {
-          this.isLoading = false;
-          this.msgService.showError(error);
+          this.router.navigate(['**']);
+
+          // this.isLoading = false;
+          // this.msgService.showError(error);
         }
       )
   }
