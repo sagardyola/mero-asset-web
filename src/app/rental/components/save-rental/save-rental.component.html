@@ -28,13 +28,7 @@
         </div>
 
         <div fxLayout="row" fxLayoutGap="5%" fxLayout.sm="column" fxLayoutGap.sm="1%">
-          <mat-form-field fxFlex="50%">
-            <mat-label>Title</mat-label>
-            <input matInput [(ngModel)]="rental.title" name="title" #title="ngModel" required>
-            <mat-error align="start" *ngIf="!title.valid && title.touched">
-              <strong>required field*</strong>
-            </mat-error>
-          </mat-form-field>
+
           <mat-form-field fxFlex="50%">
             <mat-label>Location</mat-label>
             <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel" required>

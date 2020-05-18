@@ -1,42 +1,49 @@
-<div class="container">
-
-  <form #exploreForm="ngForm">
-
-    <!-- <mat-form-field>
-      <mat-label>Item For</mat-label>
-      <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor">
-        <mat-option *ngFor="let itemFor of itemForVal" [value]="itemFor">{{itemFor}}</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-    <mat-form-field fxFlex="50%">
-      <mat-label>Location</mat-label>
-      <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel">
-    </mat-form-field>
-
-    <button mat-button [disabled]="!exploreForm.valid" *ngIf="!submitting" (click)="submit()">Search</button>
-    <button mat-button disabled *ngIf="submitting">Searching</button>
-  </form>
+<div *ngIf="isLoading">
+  <app-progress></app-progress>
 </div>
 
-<div *ngIf="results.length">
-  {{results.length}} search results
+<div class="container" *ngIf="!isLoading">
+  <form #exploreForm="ngForm">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between center">
+      <mat-form-field fxFlex="25%">
+        <mat-label>Item For</mat-label>
+        <mat-select [(ngModel)]="rental.itemFor" name="itemFor" id="itemFor"
+          (selectionChange)="changeItemFor(rental.itemFor)">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let itemFor of itemForVal" [value]="itemFor">{{itemFor}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <table>
-    <thead>
-      <th>Title</th>
-      <th>Item For</th>
-      <th>Item type</th>
-      <th>Location</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let result of results">
-        <td>{{result.title}}</td>
-        <td>{{result.itemFor}}</td>
-        <td>{{result.itemType}}</td>
-        <td>{{result.location}}</td>
-      </tr>
-    </tbody>
-  </table>
+      <mat-form-field fxFlex="25%">
+        <mat-label>Item Type</mat-label>
+        <mat-select [(ngModel)]="rental.itemType" name="itemType" id="itemType">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let itemType of itemTypeVal" [value]="itemType">
+            {{itemType}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="rental.location" name="location" #location="ngModel">
+      </mat-form-field>
+      <button mat-button [disabled]="!exploreForm.valid" *ngIf="!submitting" (click)="submit()">Search</button>
+      <button mat-button disabled *ngIf="submitting">Searching</button>
+    </div>
+  </form>
 
-
+  <div *ngIf="results.length">
+    {{results.length}} results
+  </div>
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between none" *ngIf="results.length">
+    <mat-card fxFlex="32%" fxFlex.xs="100%" *ngFor="let result of results">
+      <img mat-card-image src="./../../../assets/images/1.jpg" />
+      <mat-card-content>
+        <p>{{result.itemType}} &#40;{{result.itemFor}}&#41;</p>
+        <p>Land(Sale)</p>
+      </mat-card-content>
+      <mat-card-actions>
+        Added by <button mat-button>{{result.user.userName}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

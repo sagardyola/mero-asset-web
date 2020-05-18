@@ -118,7 +118,7 @@ export class SaveRentalComponent implements OnInit {
     } else {
       this.itemTypeVal = this.itemTypeValue;
     }
-    this.rental.itemType = [];
+    this.rental.itemType = null;
   }
 
   changeItemType(val) {

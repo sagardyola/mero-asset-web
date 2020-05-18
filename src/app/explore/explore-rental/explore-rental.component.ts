@@ -13,7 +13,12 @@ export class ExploreRentalComponent implements OnInit {
 
   rental;
   submitting: boolean = false;
+  isLoading: boolean = false;
   results = [];
+  itemForVal;
+  itemTypeVal;
+  itemTypeValue;
+
   constructor(
     public router: Router,
     public rentalService: RentalService,
@@ -23,6 +28,20 @@ export class ExploreRentalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
+    this.rentalService
+      .getCreate()
+      .subscribe((data: any) => {
+        this.itemForVal = data.itemFor;
+        this.itemTypeValue = data.itemType;
+        this.changeItemFor(this.itemTypeValue);
+        this.submit();
+
+        this.isLoading = false;
+      }, err => {
+        this.isLoading = false;
+        this.msgService.showError(err);
+      })
   }
 
   submit() {
@@ -43,6 +62,15 @@ export class ExploreRentalComponent implements OnInit {
           this.submitting = false;
         }
       )
+  }
+
+  changeItemFor(val) {
+    if (val == 'Homestay' || val == 'Roommate') {
+      this.itemTypeVal = this.itemTypeValue.slice(0, 4);
+    } else {
+      this.itemTypeVal = this.itemTypeValue;
+    }
+    this.rental.itemType = null;
   }
 
 }

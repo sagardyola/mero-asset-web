@@ -4,7 +4,6 @@
 
 export class Rental {
     code: string;
-    title: string;
     price: number;
     negotiable: boolean;
     dimension: Number;

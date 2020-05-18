@@ -18,7 +18,7 @@ export class ListRentalComponent implements OnInit {
   rentals: Array<any>;
   isLoading: boolean = false;
   @ViewChild('table') table: MatTable<any>;
-  displayedColumns = ['title', 'price', 'dimension', 'location', 'itemFor', 'itemType', 'createdAt', 'action'];
+  displayedColumns = ['price', 'dimension', 'location', 'itemFor', 'itemType', 'createdAt', 'action'];
 
   constructor(
     // public router: Router,
