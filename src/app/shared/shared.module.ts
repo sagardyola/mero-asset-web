@@ -4,17 +4,19 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material/material.module';
 
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MsgService } from './services/msg.service';
 import { UploadService } from './services/upload.service';
 import { SocketService } from './services/socket.service';
 import { ProgressComponent } from './components/progress/progress.component';
 import { DialogService } from './services/dialog.service';
+import { ConfirmEqualValidatorDirective } from './directives/confirm-equal-validator.directive';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    PageNotFoundComponent,
-    ProgressComponent
+    ProgressComponent,
+    ConfirmEqualValidatorDirective,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +24,10 @@ import { DialogService } from './services/dialog.service';
     MaterialModule
   ],
   exports: [
-    PageNotFoundComponent,
     ProgressComponent,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    ConfirmEqualValidatorDirective
   ],
   providers: [
     MsgService,

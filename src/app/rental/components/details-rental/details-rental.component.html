@@ -1,142 +1,142 @@
-<h1 class="text-center">{{rental.itemType}} for {{rental.itemFor}}</h1>
+<div class="container">
+  <h1 class="text-center">{{rental.itemType}} for {{rental.itemFor}}</h1>
+  <div fxLayout="row" fxLayoutGap="2%">
+    <div fxFlex="50%">
+      <img src="{{imgUrl}}{{rental.image}}" alt="Image" class="w-100" *ngIf="rental.image">
+    </div>
+    <div fxFlex="50%">
+      <table>
+        <tr>
+          <td class="font-weight-bold w-25">Code</td>
+          <td>{{rental.code}}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold w-25">Location</td>
+          <td>{{rental.location}}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold w-25">Dimension</td>
+          <td>{{rental.dimension}}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold w-25">Price</td>
+          <td>{{rental.price}}
+            <span *ngIf="rental.negotiable">(Negotiable)</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold w-25">
+            Description
+          </td>
+          <td class="text-justify">{{rental.description}}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold w-25">Added by</td>
+          <td *ngIf="rental.user">{{rental.user.userName}}</td>
+        </tr>
+        <tr>
+          <td class="font-weight-bold w-25">Added on</td>
+          <td>{{rental.createdAt | date:'fullDate'}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
+  <div fxLayout="row" fxLayoutGap="2%" *ngIf="!hideStepper">
+    <div fxFlex="50%">
+      <table class="w-100">
+        <tr>
+          <td colspan="2" class="mat-h2">Looking For</td>
+        </tr>
+        <tr>
+          <td class="w-50">Gender</td>
+          <td>{{rental.gender}}</td>
+        </tr>
+        <tr>
+          <td class="w-50">Marital Status</td>
+          <td>{{rental.maritalStatus}}</td>
+        </tr>
+      </table>
+    </div>
+    <div fxFlex="50%">
+      <table class="w-100">
+        <tr>
+          <td colspan="2" class="mat-h2">Lifestyle</td>
+        </tr>
+        <tr>
+          <td class="w-50">Overnight Guests</td>
+          <td>{{rental.overnightGuests}}</td>
+        </tr>
+        <tr>
+          <td class="w-50">Party Habits</td>
+          <td>{{rental.partyHabits}}</td>
+        </tr>
+        <tr>
+          <td class="w-50">Smoker</td>
+          <td>{{rental.smoker}}</td>
+        </tr>
+        <tr>
+          <td class="w-50">Pets Friendly</td>
+          <td *ngIf="rental.petsFriendly">Yes</td>
+          <td *ngIf="!rental.petsFriendly">No</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-<div fxLayout="row" fxLayoutGap="2%">
-  <div fxFlex="50%">
-    <img src="{{imgUrl}}{{rental.image}}" alt="Image" class="w-100" *ngIf="rental.image">
+  <h2 *ngIf="!hideStepper" class="d-table-row">Room Details</h2>
+  <div fxLayout="row wrap" fxLayout.xs="column" *ngIf="!hideStepper">
+    <div *ngIf="rental.livingRoom" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Living Room
+    </div>
+    <div *ngIf="rental.bedRoom" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Bedroom
+    </div>
+    <div *ngIf="rental.kitchen" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Kitchen
+    </div>
+    <div *ngIf="rental.bathRoom" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Bathroom
+    </div>
+    <div *ngIf="rental.balcony" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Balcony
+    </div>
   </div>
-  <div fxFlex="50%">
-    <table>
-      <tr>
-        <td class="font-weight-bold w-25">Code</td>
-        <td>{{rental.code}}</td>
-      </tr>
-      <tr>
-        <td class="font-weight-bold w-25">Location</td>
-        <td>{{rental.location}}</td>
-      </tr>
-      <tr>
-        <td class="font-weight-bold w-25">Dimension</td>
-        <td>{{rental.dimension}}</td>
-      </tr>
-      <tr>
-        <td class="font-weight-bold w-25">Price</td>
-        <td>{{rental.price}}
-          <span *ngIf="rental.negotiable">(Negotiable)</span>
-        </td>
-      </tr>
-      <tr>
-        <td class="font-weight-bold w-25">
-          Description
-        </td>
-        <td class="text-justify">{{rental.description}}</td>
-      </tr>
-      <tr>
-        <td class="font-weight-bold w-25">Added by</td>
-        <td *ngIf="rental.user">{{rental.user.userName}}</td>
-      </tr>
-      <tr>
-        <td class="font-weight-bold w-25">Added on</td>
-        <td>{{rental.createdAt | date:'fullDate'}}</td>
-      </tr>
-    </table>
-  </div>
-</div>
 
-<div fxLayout="row" fxLayoutGap="2%" *ngIf="!hideStepper">
-  <div fxFlex="50%">
-    <table class="w-100">
-      <tr>
-        <td colspan="2" class="mat-h2">Looking For</td>
-      </tr>
-      <tr>
-        <td class="w-50">Gender</td>
-        <td>{{rental.gender}}</td>
-      </tr>
-      <tr>
-        <td class="w-50">Marital Status</td>
-        <td>{{rental.maritalStatus}}</td>
-      </tr>
-    </table>
-  </div>
-  <div fxFlex="50%">
-    <table class="w-100">
-      <tr>
-        <td colspan="2" class="mat-h2">Lifestyle</td>
-      </tr>
-      <tr>
-        <td class="w-50">Overnight Guests</td>
-        <td>{{rental.overnightGuests}}</td>
-      </tr>
-      <tr>
-        <td class="w-50">Party Habits</td>
-        <td>{{rental.partyHabits}}</td>
-      </tr>
-      <tr>
-        <td class="w-50">Smoker</td>
-        <td>{{rental.smoker}}</td>
-      </tr>
-      <tr>
-        <td class="w-50">Pets Friendly</td>
-        <td *ngIf="rental.petsFriendly">Yes</td>
-        <td *ngIf="!rental.petsFriendly">No</td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<h2 *ngIf="!hideStepper" class="d-table-row">Room Details</h2>
-<div fxLayout="row wrap" fxLayout.xs="column" *ngIf="!hideStepper">
-  <div *ngIf="rental.livingRoom" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Living Room
-  </div>
-  <div *ngIf="rental.bedRoom" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Bedroom
-  </div>
-  <div *ngIf="rental.kitchen" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Kitchen
-  </div>
-  <div *ngIf="rental.bathRoom" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Bathroom
-  </div>
-  <div *ngIf="rental.balcony" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Balcony
-  </div>
-</div>
-
-<br>
-<h2 class="d-table-row">Other Features</h2>
-<div fxLayout="row wrap" fxLayout.xs="column">
-  <div *ngIf="rental.garden" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Garden
-  </div>
-  <div *ngIf="rental.parkingSpace" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Parking Space
-  </div>
-  <div *ngIf="rental.garage" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Garage
-  </div>
-  <div *ngIf="rental.securityGuard" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Security Guard
-  </div>
-  <div *ngIf="rental.backupGenerator" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Backup Generator
-  </div>
-  <!-- </div>
+  <br>
+  <h2 class="d-table-row">Other Features</h2>
+  <div fxLayout="row wrap" fxLayout.xs="column">
+    <div *ngIf="rental.garden" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Garden
+    </div>
+    <div *ngIf="rental.parkingSpace" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Parking Space
+    </div>
+    <div *ngIf="rental.garage" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Garage
+    </div>
+    <div *ngIf="rental.securityGuard" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Security Guard
+    </div>
+    <div *ngIf="rental.backupGenerator" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Backup Generator
+    </div>
+    <!-- </div>
 <div fxLayout="row" fxLayoutGap="2%" fxLayout.xs="column"> -->
-  <div *ngIf="rental.waterSupply" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Water Supply
-  </div>
-  <div *ngIf="rental.internet" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Internet
-  </div>
-  <div *ngIf="rental.gymnasium" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Gymnasium
-  </div>
-  <div *ngIf="rental.swimmingPool" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Swimming Pool
-  </div>
-  <div *ngIf="rental.elevator" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
-    <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Elevator
+    <div *ngIf="rental.waterSupply" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Water Supply
+    </div>
+    <div *ngIf="rental.internet" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Internet
+    </div>
+    <div *ngIf="rental.gymnasium" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Gymnasium
+    </div>
+    <div *ngIf="rental.swimmingPool" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Swimming Pool
+    </div>
+    <div *ngIf="rental.elevator" fxFlex="20%" fxFlex.sm="25%" fxFlex.xs="100%">
+      <mat-icon [inline]="true" class="font-weight-bold">check</mat-icon>Elevator
+    </div>
   </div>
 </div>

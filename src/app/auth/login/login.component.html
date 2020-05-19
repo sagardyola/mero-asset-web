@@ -16,7 +16,7 @@
         <input matInput [(ngModel)]="user.password" name="password" #password="ngModel"
           [type]="hide ? 'password' : 'text'" required>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
+          [attr.aria-pressed]="hide" type="button">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error align="start" [hidden]="password.valid || password.pristine">

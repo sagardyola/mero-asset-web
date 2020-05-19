@@ -44,7 +44,8 @@
     <div fxLayout="row" fxLayoutGap="5%" fxLayout.xs="column" fxLayoutGap.xs="1%">
       <mat-form-field fxFlex="50%">
         <mat-label>Password</mat-label>
-        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" type="password" required>
+        <input matInput [(ngModel)]="user.password" name="password" #password="ngModel" type="password"
+          (input)="cPassword.control.updateValueAndValidity()" required>
         <mat-error align="start" *ngIf="!password.valid && password.touched">
           <strong>required field*</strong>
         </mat-error>
@@ -52,14 +53,15 @@
 
       <mat-form-field fxFlex="50%">
         <mat-label>Confirm Password</mat-label>
-        <input matInput [(ngModel)]="user.cPassword" name="cPassword" #cPassword="ngModel" type="password" required>
-        <mat-error align="start" *ngIf="!cPassword.valid && cPassword.touched">
+        <input matInput [(ngModel)]="user.cPassword" name="cPassword" #cPassword="ngModel" type="password"
+          appConfirmEqualValidator="password" required>
+        <mat-error align="start" *ngIf="cPassword.touched && cPassword.errors?.required">
           <strong>required field*</strong>
         </mat-error>
 
-        <!-- <mat-error align="start" *ngIf="password != cPassword">
-          <strong>Password donot match</strong>
-        </mat-error> -->
+        <mat-error align="start" *ngIf="cPassword.touched && cPassword.errors?.notEqual && !cPassword.errors?.required">
+          <strong>Passwords donot match</strong>
+        </mat-error>
       </mat-form-field>
     </div>
 
