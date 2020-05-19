@@ -76,9 +76,15 @@
 
       <mat-form-field fxFlex="50%">
         <mat-label>DOB</mat-label>
-        <input matInput [matDatepicker]="dobPicker" [(ngModel)]="user.dob" name="dob" disabled>
+        <input matInput [matDatepicker]="dobPicker" [(ngModel)]="user.dob" name="dob" #dob="ngModel">
         <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
         <mat-datepicker #dobPicker disabled="false"></mat-datepicker>
+
+        <mat-error align="start" *ngIf="!dob.valid">
+          <strong>Invalid Format</strong>
+        </mat-error>
+
+
       </mat-form-field>
     </div>
 
