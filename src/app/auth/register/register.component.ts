@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MsgService } from 'src/app/shared/services/msg.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { User } from 'src/app/shared/models/user.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('registerForm') public createUserForm: NgForm;
   user;
   genderVal;
   submitting: boolean = false;
@@ -37,6 +39,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.user)
       .subscribe(
         (data) => {
+          this.createUserForm.reset();
           this.msgService.showInfo('Registration successful please login');
           this.router.navigate(['/auth/login']);
         },

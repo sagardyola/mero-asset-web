@@ -1,8 +1,8 @@
-// import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import Swal from 'sweetalert2';
 
-// @Injectable()
+@Injectable()
 export class DialogService {
     constructor() { }
 

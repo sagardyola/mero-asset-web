@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { RegisterComponent } from './register/register.component';
+import { CanDeactivateGuardService } from '../shared/services/can-deactivate-guard.service';
 
 const authRoute: Routes = [
     {
@@ -13,7 +14,8 @@ const authRoute: Routes = [
     },
     {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canDeactivate: [CanDeactivateGuardService]
     },
     {
         path: 'forgot-password',
